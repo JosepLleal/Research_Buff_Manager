@@ -16,6 +16,7 @@ class j1Audio;
 class j1Scene;
 class j1Map;
 class j1Player;
+class j1Fonts;
 
 class j1App
 {
@@ -87,6 +88,7 @@ public:
 	j1Scene*			scene = NULL;
 	j1Map*				map = NULL;
 	j1Player*           player = NULL;
+	j1Fonts*			font = NULL;
 
 private:
 
