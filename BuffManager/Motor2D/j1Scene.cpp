@@ -7,6 +7,9 @@
 #include "j1Render.h"
 #include "j1Window.h"
 #include "j1Map.h"
+#include "j1Fonts.h"
+#include "j1Gui.h"
+#include "j1Gui_Elements.h"
 #include "j1Scene.h"
 
 j1Scene::j1Scene() : j1Module()
@@ -42,6 +45,7 @@ bool j1Scene::Start()
 
 	debug_tex = App->tex->Load("maps/path2.png");
 
+
 	return true;
 }
 
@@ -61,7 +65,7 @@ bool j1Scene::Update(float dt)
 		App->SaveGame("save_game.xml");
 
 	
-	/*if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
+	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 		App->render->camera.y += ceil(150.0*dt);
 
 	if(App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
@@ -71,7 +75,7 @@ bool j1Scene::Update(float dt)
 		App->render->camera.x += ceil(150.0*dt);
 
 	if(App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
-		App->render->camera.x -= ceil(150.0*dt);*/
+		App->render->camera.x -= ceil(150.0*dt);
 
 	App->map->Draw();
 

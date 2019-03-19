@@ -26,6 +26,10 @@
     <folder>maps/</folder>
   </map>
 
+  <gui>
+    <atlas file="gui/atlas.png"/>
+  </gui>
+
   <scene>
     <map_name path="iso.tmx"/>
   </scene>
