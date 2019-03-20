@@ -35,14 +35,12 @@ public:
 
 
 public:
-	bool				do_logic = false;
-	int					logic_updates_per_second = 0;
-	float				update_s_cycle = 0;
-	float				accumulated_time = 0;
-	int frame_count = 0;
 
-private:
+	iPoint position = {0,0};
 
+	uint speed, health, armor, strength = 0;
+
+	SDL_Texture * graphics = nullptr;
 
 };
 

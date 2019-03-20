@@ -2,6 +2,7 @@
 #define __j1SCENE_H__
 
 #include "j1Module.h"
+#include "j1Gui.h"
 #include <vector>
 
 struct SDL_Texture;
@@ -45,6 +46,14 @@ private:
 	SDL_Texture* debug_tex;
 
 	std::vector <std::string*> StageList;
+
+	Gui_Elements* Health = nullptr;
+	Gui_Elements* Strength = nullptr;
+	Gui_Elements* Speed = nullptr;
+	Gui_Elements* Armor = nullptr;
+
+	Gui_Elements* HUD = nullptr;
+
 };
 
 #endif // __j1SCENE_H__

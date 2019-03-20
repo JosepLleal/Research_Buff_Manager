@@ -1,8 +1,13 @@
 #include "j1Player.h"
+#include "j1App.h"
+#include "j1Textures.h"
+#include "j1Render.h"
+#include "j1Input.h"
 #include "p2Log.h"
 
-j1Player::j1Player()
+j1Player::j1Player(): j1Module()
 {
+	name.assign("player");
 }
 
 j1Player::~j1Player()
@@ -11,8 +16,7 @@ j1Player::~j1Player()
 
 bool j1Player::Awake()
 {
-	logic_updates_per_second = 10.0;
-	update_s_cycle = 1.0f / (float)logic_updates_per_second;
+	
 
 	return true;
 }
@@ -20,54 +24,58 @@ bool j1Player::Awake()
 bool j1Player::Start()
 {
 
-	logic_updates_per_second = 10.0;
-	update_s_cycle = 1.0f / (float)logic_updates_per_second;
+	graphics = App->tex->Load("textures/character.png");
 
+	position.x = 0;
+	position.y = 600;
+
+	health = 100;
+	strength = 50;
+	speed = 3;
+	armor = 10;
+	
 	return true;
 }
 
 bool j1Player::PreUpdate()
 {
 
-	do_logic = false;
 
 
 	return true;
 }
 
-bool j1Player::UpdateTick(float dt)
-{
-	frame_count++;
-
-	return true;
-}
 
 bool j1Player::Update(float dt)
 {
-	accumulated_time += dt;
+	
+	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
+		position.y -= speed ;
 
-	if (accumulated_time >= update_s_cycle)
-	{
-		do_logic = true;
-	}
+	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)
+		position.y += speed;
 
-	if (do_logic == true)
-	{
-		UpdateTick(dt);
-		//LOG("Did logic step after %f", accumulated_time);
-		//LOG("frame_Count: %i", frame_count);
-		accumulated_time = 0.0f;
-	}
+	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
+		position.x -= speed;
+
+	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
+		position.x += speed;
 
 	return true;
 }
 
 bool j1Player::PostUpdate()
 {
+
+	App->render->Blit(graphics, position.x, position.y);
+
 	return true;
 }
 
 bool j1Player::CleanUp()
 {
+
+	App->tex->UnLoad(graphics);
+
 	return true;
 }
