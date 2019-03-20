@@ -6,4 +6,6 @@ This content is generated for the second year’s subject Project 2, under super
 
   - Github account: [Josep Lleal](https://github.com/JosepLleal)
   
+Welcome! I understand that if you are reading this is because you are interested in this topic, one of the cores of the [MMORPGs](https://en.wikipedia.org/wiki/Massively_multiplayer_online_role-playing_game) genre. Before I start explaining how to implement a Buff Manager, it is essential to clearly understand how do Buffs work and to know all the different existing types. So, with this beeing said, lets start:
+  
   
