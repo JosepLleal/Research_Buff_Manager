@@ -6,7 +6,7 @@
 
 struct SDL_Texture;
 
-enum Attributes
+enum Attribute
 {
 	HEALTH,
 	STRENGTH,
@@ -16,7 +16,6 @@ enum Attributes
 
 enum EffectType
 {
-	NONE,
 	BUFF,
 	DEBUFF
 };
@@ -24,7 +23,7 @@ enum EffectType
 enum EffectTime
 {
 	PERMANENT,
-	LIMITED
+	TEMPORARY
 };
 
 enum EffectMethod
@@ -36,15 +35,16 @@ enum EffectMethod
 	
 struct Effect 
 {
+	std::string		name;
+
 	EffectType		type;
-	EffectTime		duration;
+	EffectTime		duration_type;
 	EffectMethod	method;
+	Attribute		attribute_to_change;
 
-	uint			bonus;
+	float			bonus;
+	uint			original_value;
 	uint			duration_value;
-
-	j1Timer			timer;
-
 };
 
 class j1BuffManager :public j1Module 
@@ -66,12 +66,15 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
-	void ApplyEffect(Effect effect);
+	void ApplyEffect(Effect* effect, j1Player *entity);
+	void DoMath(uint &att_value, float bonus, EffectMethod method, EffectType eff_type);
+	void RestartAttribute(Effect* effect, j1Player *entity);
 
 
 public:
 
-	Effect heal;	
+	Effect			heal;	
+
 
 };
 

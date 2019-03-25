@@ -29,10 +29,10 @@ bool j1Player::Start()
 	position.x = 0;
 	position.y = 600;
 
-	health = 100;
-	strength = 50;
-	speed = 3;
-	armor = 10;
+	health = og_health = 200;
+	strength = og_strength = 50;
+	speed = og_speed = 3;
+	armor = og_armor = 10;
 	
 	return true;
 }
@@ -61,6 +61,7 @@ bool j1Player::Update(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
 		position.x += speed;
 
+	
 	return true;
 }
 

@@ -3,6 +3,7 @@
 
 #include "j1Module.h"
 #include "p2Point.h"
+#include "j1Timer.h"
 
 struct SDL_Texture;
 
@@ -39,8 +40,12 @@ public:
 	iPoint position = {0,0};
 
 	uint speed, health, armor, strength = 0;
+	uint og_speed, og_health, og_armor, og_strength = 0;
 
 	SDL_Texture * graphics = nullptr;
+
+	j1Timer healing;
+	bool heal_active = false;
 
 };
 

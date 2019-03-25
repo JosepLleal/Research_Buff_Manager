@@ -15,6 +15,7 @@
 #include "j1Player.h"
 #include "j1Fonts.h"
 #include "j1Gui.h"
+#include "j1BuffManager.h"
 
 // Constructor
 j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
@@ -31,6 +32,7 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	player = new j1Player();
 	font = new j1Fonts();
 	gui = new j1Gui();
+	buff = new j1BuffManager();
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -41,6 +43,7 @@ j1App::j1App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(map);
 	AddModule(font);
 	AddModule(player);
+	AddModule(buff);
 	AddModule(gui);
 	AddModule(scene);
 
