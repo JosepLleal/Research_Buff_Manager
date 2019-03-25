@@ -44,8 +44,14 @@ public:
 
 	SDL_Texture * graphics = nullptr;
 
-	j1Timer healing;
-	bool heal_active = false;
+	// HEALING EFFECT
+	j1Timer		healing;
+	bool		heal_active = false;
+
+	//HEALING PER TICK
+	j1Timer		hp_tick;
+	bool		hp_tick_active = false; 
+	int			hp_tick_iterator = 0;
 
 };
 

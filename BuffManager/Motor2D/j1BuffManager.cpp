@@ -27,12 +27,20 @@ bool j1BuffManager::Awake()
 bool j1BuffManager::Start()
 {
 	heal.name = "healing";
-	heal.type = BUFF;
+	heal.type = DEBUFF;
 	heal.bonus = 20;
 	heal.duration_type = TEMPORARY;
 	heal.duration_value = 5;
 	heal.method = ADD;
 	heal.attribute_to_change = HEALTH;
+
+	health.name = "hp_tick";
+	health.type = BUFF;
+	health.bonus = 2;
+	health.duration_type = PER_TICK;
+	health.duration_value = 10;
+	health.method = ADD;
+	health.attribute_to_change = HEALTH;
 
 	
 
@@ -42,11 +50,25 @@ bool j1BuffManager::Start()
 bool j1BuffManager::Update(float dt)
 {
 
-	LOG("START: %i", App->player->healing.started_at);
-	LOG("TIME: %f", App->player->healing.ReadSec());
-	LOG("OG: %i", App->player->og_health);
-
 	RestartAttribute(&heal, App->player);
+
+	//PER TICK (NEEDS FUNCTION)
+	if (App->player->hp_tick_active == true)
+	{
+		if (App->player->hp_tick.ReadSec() > health.duration_value)
+		{
+			App->player->hp_tick_active = false;
+			App->player->hp_tick_iterator = 0;
+
+		}
+		if (App->player->hp_tick.ReadSec() > App->player->hp_tick_iterator)
+		{
+			DoMath(App->player->health, health.bonus, health.method, health.type);
+			DoMath(App->player->og_health, health.bonus, health.method, health.type);
+			App->player->hp_tick_iterator++;
+		}		
+	}
+	
 
 	return true;
 }
@@ -85,30 +107,60 @@ void j1BuffManager::ApplyEffect(Effect* effect, j1Player *entity)
 		switch (effect->attribute_to_change)
 		{
 		case HEALTH:
-			if(entity->heal_active == false)
-				DoMath(entity->health, effect->bonus, effect->method, effect->type);
-			entity->healing.Start();
-			entity->heal_active = true;
-			
+			if (effect->name == heal.name)
+			{
+				if (entity->heal_active == false)
+				{
+					DoMath(entity->health, effect->bonus, effect->method, effect->type);
+					entity->heal_active = true;
+				}
+				entity->healing.Start();
+			}
 			break;
 
 		case STRENGTH:
-			effect->original_value = entity->strength;
 			DoMath(entity->strength, effect->bonus, effect->method, effect->type);
 			
 			break;
 
 		case ARMOR:
-			effect->original_value = entity->armor;
 			DoMath(entity->armor, effect->bonus, effect->method, effect->type);
 			
 			break;
 
 		case SPEED:
-			effect->original_value = entity->speed;
 			DoMath(entity->speed, effect->bonus, effect->method, effect->type);
 			
 			break;
+		}
+	}
+	else if (effect->duration_type == PER_TICK)
+	{
+		switch (effect->attribute_to_change)
+		{
+		case HEALTH:
+			if (effect->name == health.name)
+			{
+				if (entity->hp_tick_active == false)
+				{
+					entity->hp_tick_active = true;
+				}
+				entity->hp_tick.Start();
+			}
+			break;
+
+		case STRENGTH:
+			
+			break;
+
+		case ARMOR:
+			
+			break;
+
+		case SPEED:
+			
+			break;
+
 		}
 	}
 	
@@ -123,6 +175,10 @@ void j1BuffManager::DoMath(uint &att_value, float bonus, EffectMethod method, Ef
 		{
 			att_value += bonus;
 		}
+		else if (method == MULTIPLY)
+		{
+			att_value *= bonus;
+		}
 		else if (method == PERCENTAGE)
 		{
 			att_value += att_value * (bonus / 100);
@@ -133,6 +189,10 @@ void j1BuffManager::DoMath(uint &att_value, float bonus, EffectMethod method, Ef
 		if (method == ADD)
 		{
 			att_value -= bonus;
+		}
+		else if (method == MULTIPLY)
+		{
+			att_value /= bonus;
 		}
 		else if (method == PERCENTAGE)
 		{
@@ -154,6 +214,7 @@ void j1BuffManager::RestartAttribute(Effect *effect, j1Player *entity)
 	}
 	
 }
+
 
 bool j1BuffManager::CleanUp()
 {

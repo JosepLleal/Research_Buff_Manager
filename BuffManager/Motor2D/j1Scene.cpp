@@ -93,6 +93,11 @@ bool j1Scene::Update(float dt)
 		App->buff->ApplyEffect(&App->buff->heal, App->player);
 	}
 
+	if (App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
+	{
+		App->buff->ApplyEffect(&App->buff->health, App->player);
+	}
+
 
 	App->map->Draw();
 

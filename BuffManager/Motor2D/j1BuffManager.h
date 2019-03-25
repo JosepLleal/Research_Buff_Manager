@@ -23,12 +23,14 @@ enum EffectType
 enum EffectTime
 {
 	PERMANENT,
-	TEMPORARY
+	TEMPORARY,
+	PER_TICK
 };
 
 enum EffectMethod
 {
 	ADD,
+	MULTIPLY,
 	PERCENTAGE
 };
 
@@ -43,7 +45,6 @@ struct Effect
 	Attribute		attribute_to_change;
 
 	float			bonus;
-	uint			original_value;
 	uint			duration_value;
 };
 
@@ -73,7 +74,10 @@ public:
 
 public:
 
-	Effect			heal;	
+	Effect			heal;
+
+	Effect			health;
+	
 
 
 };
