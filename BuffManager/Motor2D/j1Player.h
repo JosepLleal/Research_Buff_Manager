@@ -48,7 +48,7 @@ public:
 	j1Timer		healing;
 	bool		heal_active = false;
 
-	//HEALING PER TICK
+	//HEALING PER TICK EFFECT
 	j1Timer		hp_tick;
 	bool		hp_tick_active = false; 
 	int			hp_tick_iterator = 0;

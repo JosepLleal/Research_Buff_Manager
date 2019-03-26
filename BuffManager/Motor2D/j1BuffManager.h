@@ -4,6 +4,12 @@
 #include "j1Module.h"
 #include "p2Point.h"
 
+#define MAX_HEALTH 1000
+#define MAX_STRENGTH 500
+#define MAX_ARMOR 300
+#define MAX_SPEED 20
+
+
 struct SDL_Texture;
 
 enum Attribute
@@ -70,6 +76,9 @@ public:
 	void ApplyEffect(Effect* effect, j1Player *entity);
 	void DoMath(uint &att_value, float bonus, EffectMethod method, EffectType eff_type);
 	void RestartAttribute(Effect* effect, j1Player *entity);
+	void ApplyByTick(Effect* effect, j1Player *entity);
+
+	void LimitAttributes(j1Player *entity);
 
 
 public:

@@ -27,48 +27,42 @@ bool j1BuffManager::Awake()
 bool j1BuffManager::Start()
 {
 	heal.name = "healing";
-	heal.type = DEBUFF;
+	heal.type = BUFF;
 	heal.bonus = 20;
-	heal.duration_type = TEMPORARY;
+	heal.duration_type = PERMANENT;
 	heal.duration_value = 5;
 	heal.method = ADD;
 	heal.attribute_to_change = HEALTH;
 
 	health.name = "hp_tick";
-	health.type = BUFF;
+	health.type = DEBUFF;
 	health.bonus = 2;
 	health.duration_type = PER_TICK;
 	health.duration_value = 10;
 	health.method = ADD;
 	health.attribute_to_change = HEALTH;
 
-	
-
 	return true;
 }
 
 bool j1BuffManager::Update(float dt)
 {
-
+	// TEMPORARY EFFECT
 	RestartAttribute(&heal, App->player);
 
-	//PER TICK (NEEDS FUNCTION)
-	if (App->player->hp_tick_active == true)
-	{
-		if (App->player->hp_tick.ReadSec() > health.duration_value)
-		{
-			App->player->hp_tick_active = false;
-			App->player->hp_tick_iterator = 0;
+	// PER TICK
+	ApplyByTick(&health, App->player);
 
-		}
-		if (App->player->hp_tick.ReadSec() > App->player->hp_tick_iterator)
-		{
-			DoMath(App->player->health, health.bonus, health.method, health.type);
-			DoMath(App->player->og_health, health.bonus, health.method, health.type);
-			App->player->hp_tick_iterator++;
-		}		
-	}
+	// LIMIT THE ATTRIBUTES OF Entities
+	LimitAttributes(App->player);
 	
+
+	return true;
+}
+
+bool j1BuffManager::CleanUp()
+{
+
 
 	return true;
 }
@@ -102,7 +96,7 @@ void j1BuffManager::ApplyEffect(Effect* effect, j1Player *entity)
 					
 		}
 	}
-	else if (effect->duration_type == TEMPORARY)
+	else if (effect->duration_type == TEMPORARY) // we have to put manually every NEW EFFECT that has a TIMER (and create the timer in entity.h or in this case Player.h)
 	{
 		switch (effect->attribute_to_change)
 		{
@@ -134,7 +128,7 @@ void j1BuffManager::ApplyEffect(Effect* effect, j1Player *entity)
 			break;
 		}
 	}
-	else if (effect->duration_type == PER_TICK)
+	else if (effect->duration_type == PER_TICK)// we have to put manually every NEW EFFECT that has a TIMER (and create the timer in entity.h or in this case Player.h)
 	{
 		switch (effect->attribute_to_change)
 		{
@@ -215,8 +209,52 @@ void j1BuffManager::RestartAttribute(Effect *effect, j1Player *entity)
 	
 }
 
-
-bool j1BuffManager::CleanUp()
+void j1BuffManager::ApplyByTick(Effect * effect, j1Player * entity)
 {
-	return true;
+	if (entity->hp_tick_active == true)
+	{
+		if (entity->hp_tick.ReadSec() > effect->duration_value)
+		{
+			entity->hp_tick_active = false;
+			entity->hp_tick_iterator = 0;
+
+		}
+		if (entity->hp_tick.ReadSec() > entity->hp_tick_iterator)
+		{
+			DoMath(entity->health, effect->bonus, effect->method, effect->type);
+			DoMath(entity->og_health, effect->bonus, effect->method, effect->type);
+			entity->hp_tick_iterator++;
+		}
+	}
+}
+
+void j1BuffManager::LimitAttributes(j1Player * entity)
+{
+	// HEALTH ATT
+	if (entity->og_health > MAX_HEALTH)
+		entity->og_health = MAX_HEALTH;
+
+	if (entity->health > MAX_HEALTH)
+		entity->health = MAX_HEALTH;
+
+	// STRENGTH ATT
+	if (entity->og_strength > MAX_STRENGTH)
+		entity->og_strength = MAX_STRENGTH;
+
+	if (entity->strength > MAX_STRENGTH)
+		entity->strength = MAX_STRENGTH;
+
+	// ARMOR ATT
+	if (entity->og_armor > MAX_ARMOR)
+		entity->og_armor = MAX_ARMOR;
+
+	if (entity->armor > MAX_ARMOR)
+		entity->armor = MAX_ARMOR;
+
+	// SPEED ATT
+	if (entity->og_speed > MAX_SPEED)
+		entity->og_speed = MAX_SPEED;
+
+	if (entity->speed > MAX_SPEED)
+		entity->speed = MAX_SPEED;
 }
