@@ -13,4 +13,7 @@ Before explaining what a Buff really is, I want to introduce the therm **status 
 
 "A **status effect** is a modification to a game character’s original set of stats that usually comes into play when special powers and abilities are used. The term **status effect** can be applied both to changes that provide a character an advantage (increased attributes, defensive barriers, regeneration), and those that hinder the character (decreased attributes, incapacitation, degeneration)." *Wikipedia*
 
-With this definition we can clearly distinguish two subdivisions: Status effects that provide an **advantage** and status effects that provide a **disadvantage**.   
+With this definition we can clearly distinguish two types of status effects, the ones that provide an **advantage** and the others that provide a **disadvantage**:
+
+- **Buff:** is the status effect that affects an entity in a positive way, providing him an advanage. One of the most used buffs in video games is the health potion, which increases the current health of a character.    
+- **Debuff:** is the status effect that affects an entity in a negative way, providing him a disadvanage. For instance, a commonly used debuff in video games is the poison, which decreases the current health  of a character. 
