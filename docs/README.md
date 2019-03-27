@@ -9,4 +9,8 @@ This content is generated for the second year’s subject Project 2, under super
 Welcome! I understand that if you are reading this is because you are interested in this topic, one of the cores of the [MMORPGs](https://en.wikipedia.org/wiki/Massively_multiplayer_online_role-playing_game) genre. Before I start explaining how to implement a Buff Manager, it is essential to clearly understand how do Buffs work and to know all the different existing types. So, with this being said, lets start:
   
 ## What is a Buff? 
-In videogames, when there is a **modification to a character’s original set of stats or attributes**, even if this changes provide an advantage or a disadvantage to the character, this term is known as **status effect**.  When this effect is positive it is called **Buff** and when it is negative it is called **Debuff**. 
+Before explaining what a Buff really is, I want to introduce the therm **status effect**:
+
+"A **status effect** is a modification to a game character’s original set of stats that usually comes into play when special powers and abilities are used. The term **status effect** can be applied both to changes that provide a character an advantage (increased attributes, defensive barriers, regeneration), and those that hinder the character (decreased attributes, incapacitation, degeneration)." *Wikipedia*
+
+With this definition we can clearly distinguish two subdivisions: Status effects that provide an **advantage** and status effects that provide a **disadvantage**.   
