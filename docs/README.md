@@ -17,6 +17,8 @@ With this definition we can clearly distinguish two types of status effects, the
 
 - **Buff:** is the status effect that affects an entity in a positive way, providing him an advanage. One of the most used buffs in video games is the health potion, which increases the current health of a character.    
 
-![Apex Legends Healing](https://im.ezgif.com/tmp/ezgif-1-a5606266bbab.gif)
+<p align="center">
+  <img  src="https://im.ezgif.com/tmp/ezgif-1-a5606266bbab.gif" width="320">
+</p>
 
 - **Debuff:** is the status effect that affects an entity in a negative way, providing him a disadvanage. For instance, a commonly used debuff in video games is the poison, which decreases the current health  of a character. 
