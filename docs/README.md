@@ -11,7 +11,7 @@ Welcome! I understand that if you are reading this is because you are interested
 ## What is a Buff? 
 Before explaining what a Buff really is, I want to introduce the therm **status effect**:
 
-"A **status effect** is a modification to a game character’s original set of stats that usually comes into play when special powers and abilities are used. The term **status effect** can be applied both to changes that provide a character an advantage (increased attributes, defensive barriers, regeneration), and those that hinder the character (decreased attributes, incapacitation, degeneration)." *Wikipedia*
+"A **status effect** is a modification to a game character’s original set of stats that usually comes into play when special powers and abilities are used. The term **status effect** can be applied both to changes that provide a character an advantage (increased attributes, defensive barriers, regeneration), and those that hinder the character (decreased attributes, incapability, degeneration)." *Wikipedia*
 
 With this definition we can clearly distinguish two types of status effects, the ones that provide an **advantage** and the others that provide a **disadvantage**:
 
@@ -34,4 +34,4 @@ With this definition we can clearly distinguish two types of status effects, the
 </p>
 
 ## Types of effects
-When talking about types of effects the most commonly classification is dividing them in two main groups: buffs and debuffs, as I stated before, but indeed, we can organize them in different ways depending on how we approach them. For instance, the classification of buffs and debuffs is approached by looking **how an effect affects an entity**. The other approaches are looking the **durability of an effect** and **how is an effect applied**.
+When talking about types of effects the most commonly classification is dividing them into two main groups: buffs and debuffs, as I stated before, but indeed, we can organize them in different ways depending on how we approach them. For instance, the classification of buffs and debuffs is approached by looking **how an effect affects an entity**. The other approaches are looking the **durability of an effect** and **how an effect is applied**.
