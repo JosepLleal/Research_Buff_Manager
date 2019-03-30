@@ -21,11 +21,14 @@ With this definition we can clearly distinguish two types of status effects, the
   <img  src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/healing.gif" width="320">
 </p>
 <p align="center">
-  *Healing in Apex Legends*
+  Healing in Apex Legends
 </p>
 
 - **Debuff:** is the status effect that affects an entity in a negative way, providing him a disadvantage. For instance, a commonly used debuff in video games is the poison, which decreases the current health  of a character. 
 
 <p align="center">
   <img  src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/poison.gif" width="320">
+</p>
+<p align="center">
+  Poison affecting Apex Legends players
 </p>
