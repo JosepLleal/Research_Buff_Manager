@@ -32,3 +32,6 @@ With this definition we can clearly distinguish two types of status effects, the
 <p align="center">
   <i>Poison affecting Apex Legends players</i>
 </p>
+
+## Types of effects
+When talking about types of effects the most commonly classification is dividing them in two main groups: buffs and debuffs, as I stated before, but indeed, we can organize them in different ways depending on how we approach them. For instance, the classification of buffs and debuffs is approached by looking **how an effect affects an entity**. The other approaches are looking the **durability of an effect** and **how is an effect applied**.
