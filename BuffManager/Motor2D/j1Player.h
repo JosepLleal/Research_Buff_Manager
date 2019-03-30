@@ -39,8 +39,8 @@ public:
 
 	iPoint position = {0,0};
 
-	uint speed, health, armor, strength = 0;
-	uint og_speed, og_health, og_armor, og_strength = 0;
+	int speed, health, armor, strength = 0;
+	int og_speed, og_health, og_armor, og_strength = 0;
 
 	SDL_Texture * graphics = nullptr;
 
@@ -49,9 +49,9 @@ public:
 	bool		heal_active = false;
 
 	//HEALING PER TICK EFFECT
-	j1Timer		hp_tick;
-	bool		hp_tick_active = false; 
-	int			hp_tick_iterator = 0;
+	j1Timer		poison_tick;
+	bool		poison_tick_active = false; 
+	int			poison_tick_iterator = 0;
 
 };
 

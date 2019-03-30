@@ -20,27 +20,17 @@ j1BuffManager::~j1BuffManager()
 
 bool j1BuffManager::Awake()
 {
+
 	return true;
 }
 
 
 bool j1BuffManager::Start()
 {
-	heal.name = "healing";
-	heal.type = BUFF;
-	heal.bonus = 20;
-	heal.duration_type = PERMANENT;
-	heal.duration_value = 5;
-	heal.method = ADD;
-	heal.attribute_to_change = HEALTH;
+	pugi::xml_parse_result res = buffmanager_xml.load_file("buff_manager.xml");;
+	node = buffmanager_xml.document_element();
 
-	health.name = "hp_tick";
-	health.type = DEBUFF;
-	health.bonus = 2;
-	health.duration_type = PER_TICK;
-	health.duration_value = 10;
-	health.method = ADD;
-	health.attribute_to_change = HEALTH;
+	LoadEffects(node);
 
 	return true;
 }
@@ -48,12 +38,12 @@ bool j1BuffManager::Start()
 bool j1BuffManager::Update(float dt)
 {
 	// TEMPORARY EFFECT
-	RestartAttribute(&heal, App->player);
+	RestartAttribute(&effects[HEAL], App->player);
 
 	// PER TICK
-	ApplyByTick(&health, App->player);
+	ApplyByTick(&effects[POISON], App->player);
 
-	// LIMIT THE ATTRIBUTES OF Entities
+	// LIMIT THE ATTRIBUTES OF Entities (better optimization if this is done on the update of every entity)
 	LimitAttributes(App->player);
 	
 
@@ -101,7 +91,7 @@ void j1BuffManager::ApplyEffect(Effect* effect, j1Player *entity)
 		switch (effect->attribute_to_change)
 		{
 		case HEALTH:
-			if (effect->name == heal.name)
+			if (effect->name == effects[HEAL].name)
 			{
 				if (entity->heal_active == false)
 				{
@@ -133,13 +123,13 @@ void j1BuffManager::ApplyEffect(Effect* effect, j1Player *entity)
 		switch (effect->attribute_to_change)
 		{
 		case HEALTH:
-			if (effect->name == health.name)
+			if (effect->name == effects[POISON].name)
 			{
-				if (entity->hp_tick_active == false)
+				if (entity->poison_tick_active == false)
 				{
-					entity->hp_tick_active = true;
+					entity->poison_tick_active = true;
 				}
-				entity->hp_tick.Start();
+				entity->poison_tick.Start();
 			}
 			break;
 
@@ -161,7 +151,7 @@ void j1BuffManager::ApplyEffect(Effect* effect, j1Player *entity)
 
 }
 
-void j1BuffManager::DoMath(uint &att_value, float bonus, EffectMethod method, EffectType eff_type)
+void j1BuffManager::DoMath(int &att_value, float bonus, EffectMethod method, EffectType eff_type)
 {
 	if (eff_type == BUFF)
 	{
@@ -196,11 +186,11 @@ void j1BuffManager::DoMath(uint &att_value, float bonus, EffectMethod method, Ef
 	
 }
 
-void j1BuffManager::RestartAttribute(Effect *effect, j1Player *entity)
+void j1BuffManager::RestartAttribute(Effect *effect, j1Player *entity) //Check all the TEMPORAY effects of an entity and 
 {
-	if (effect->name == "healing")
+	if (effect->name == effects[HEAL].name)
 	{
-		if (entity->healing.ReadSec() > effect->duration_value && entity->heal_active == true)
+		if (entity->heal_active == true && entity->healing.ReadSec() > effect->duration_value)
 		{
 			entity->health = entity->og_health;
 			entity->heal_active = false;
@@ -209,21 +199,21 @@ void j1BuffManager::RestartAttribute(Effect *effect, j1Player *entity)
 	
 }
 
-void j1BuffManager::ApplyByTick(Effect * effect, j1Player * entity)
+void j1BuffManager::ApplyByTick(Effect * effect, j1Player * entity) //Check all the PER_TICK effects of an entity
 {
-	if (entity->hp_tick_active == true)
+	if (entity->poison_tick_active == true)
 	{
-		if (entity->hp_tick.ReadSec() > effect->duration_value)
+		if (entity->poison_tick.ReadSec() > effect->duration_value)
 		{
-			entity->hp_tick_active = false;
-			entity->hp_tick_iterator = 0;
+			entity->poison_tick_active = false;
+			entity->poison_tick_iterator = 0;
 
 		}
-		if (entity->hp_tick.ReadSec() > entity->hp_tick_iterator)
+		if (entity->poison_tick.ReadSec() > entity->poison_tick_iterator)
 		{
 			DoMath(entity->health, effect->bonus, effect->method, effect->type);
 			DoMath(entity->og_health, effect->bonus, effect->method, effect->type);
-			entity->hp_tick_iterator++;
+			entity->poison_tick_iterator++;
 		}
 	}
 }
@@ -233,28 +223,117 @@ void j1BuffManager::LimitAttributes(j1Player * entity)
 	// HEALTH ATT
 	if (entity->og_health > MAX_HEALTH)
 		entity->og_health = MAX_HEALTH;
+	else if (entity->og_health < MIN_HEALTH)
+		entity->og_health = MIN_HEALTH;
 
 	if (entity->health > MAX_HEALTH)
 		entity->health = MAX_HEALTH;
+	else if (entity->health < MIN_HEALTH)
+		entity->health = MIN_HEALTH;
 
 	// STRENGTH ATT
 	if (entity->og_strength > MAX_STRENGTH)
 		entity->og_strength = MAX_STRENGTH;
+	else if (entity->og_strength < MIN_STRENGTH)
+		entity->og_strength = MIN_STRENGTH;
 
 	if (entity->strength > MAX_STRENGTH)
 		entity->strength = MAX_STRENGTH;
+	else if (entity->strength < MIN_STRENGTH)
+		entity->strength = MIN_STRENGTH;
 
 	// ARMOR ATT
 	if (entity->og_armor > MAX_ARMOR)
 		entity->og_armor = MAX_ARMOR;
+	else if (entity->og_armor < MIN_ARMOR)
+		entity->og_armor = MIN_ARMOR;
 
 	if (entity->armor > MAX_ARMOR)
 		entity->armor = MAX_ARMOR;
+	else if (entity->armor < MIN_ARMOR)
+		entity->armor = MIN_ARMOR;
 
 	// SPEED ATT
 	if (entity->og_speed > MAX_SPEED)
 		entity->og_speed = MAX_SPEED;
+	else if (entity->og_speed < MIN_SPEED)
+		entity->og_speed = MIN_SPEED;
 
 	if (entity->speed > MAX_SPEED)
 		entity->speed = MAX_SPEED;
+	else if (entity->speed < MIN_SPEED)
+		entity->speed = MIN_SPEED;
+}
+
+void j1BuffManager::LoadEffects(pugi::xml_node & data)
+{
+	pugi::xml_node effect;
+	Effect iterator;
+	
+	for (effect = data.child("effect"); effect; effect = effect.next_sibling("effect"))
+	{
+		iterator.name = effect.attribute("name").as_string();
+		SetValue(iterator, effect.attribute("type").as_string());
+		SetValue(iterator, effect.attribute("duration_type").as_string());
+		SetValue(iterator, effect.attribute("method").as_string());
+		SetValue(iterator, effect.attribute("att_to_change").as_string());
+		iterator.bonus = effect.attribute("bonus").as_int();
+		iterator.duration_value = effect.attribute("duration_value").as_int();
+
+		effects[effect.attribute("id").as_int()] = iterator;
+	}
+}
+
+void j1BuffManager::SetValue(Effect & effect, std::string string)
+{
+	if (string == "BUFF" )
+	{
+		effect.type = BUFF;
+	}
+	else if (string == "DEBUFF")
+	{
+		effect.type = DEBUFF;
+	}
+	else if (string == "PERMANENT")
+	{
+		effect.duration_type = PERMANENT;
+	}
+	else if (string == "TEMPORARY")
+	{
+		effect.duration_type = TEMPORARY;
+	}
+	else if (string == "PER_TICK")
+	{
+		effect.duration_type = PER_TICK;
+	}
+	else if (string == "ADD")
+	{
+		effect.method = ADD;
+	}
+	else if (string == "MULTIPLY")
+	{
+		effect.method = MULTIPLY;
+	}
+	else if (string == "PERCENTAGE")
+	{
+		effect.method = PERCENTAGE;
+	}
+	else if (string == "HEALTH")
+	{
+		effect.attribute_to_change = HEALTH;
+	}
+	else if (string == "ARMOR")
+	{
+		effect.attribute_to_change = ARMOR;
+	}
+	else if (string == "STRENGTH")
+	{
+		effect.attribute_to_change = STRENGTH;
+	}
+	else if (string == "SPEED")
+	{
+		effect.attribute_to_change = SPEED;
+	}
+	
+	
 }

@@ -1,0 +1,7 @@
+<buff_manager>
+  <effect id ="0" name="healing" type="BUFF" duration_type="PERMANENT" method="ADD" att_to_change="HEALTH" bonus="20" duration_value="0"></effect>
+  
+  <effect id="1" name="poison" type="DEBUFF" duration_type="PER_TICK" method="ADD" att_to_change="HEALTH" bonus="2" duration_value="10"></effect>
+  
+
+</buff_manager>

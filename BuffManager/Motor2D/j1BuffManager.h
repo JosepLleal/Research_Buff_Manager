@@ -4,10 +4,17 @@
 #include "j1Module.h"
 #include "p2Point.h"
 
+#define MAX_EFFECTS 10
+
 #define MAX_HEALTH 1000
 #define MAX_STRENGTH 500
 #define MAX_ARMOR 300
 #define MAX_SPEED 20
+
+#define MIN_HEALTH 0
+#define MIN_STRENGTH 0
+#define MIN_ARMOR 0
+#define MIN_SPEED 0
 
 
 struct SDL_Texture;
@@ -19,6 +26,13 @@ enum Attribute
 	ARMOR,
 	SPEED
 };
+
+enum Effects
+{
+	HEAL,
+	POISON
+};
+
 
 enum EffectType
 {
@@ -50,8 +64,8 @@ struct Effect
 	EffectMethod	method;
 	Attribute		attribute_to_change;
 
-	float			bonus;
-	uint			duration_value;
+	int			bonus;
+	int			duration_value;
 };
 
 class j1BuffManager :public j1Module 
@@ -74,20 +88,26 @@ public:
 	bool CleanUp();
 
 	void ApplyEffect(Effect* effect, j1Player *entity);
-	void DoMath(uint &att_value, float bonus, EffectMethod method, EffectType eff_type);
+
+private:
+
+	void DoMath(int &att_value, float bonus, EffectMethod method, EffectType eff_type);
 	void RestartAttribute(Effect* effect, j1Player *entity);
 	void ApplyByTick(Effect* effect, j1Player *entity);
-
 	void LimitAttributes(j1Player *entity);
 
+	void LoadEffects(pugi::xml_node& data);
+
+	void SetValue(Effect &effect, std::string string);
 
 public:
 
-	Effect			heal;
+	Effect			effects[MAX_EFFECTS];
 
-	Effect			health;
-	
+private:
 
+	pugi::xml_document buffmanager_xml;
+	pugi::xml_node node;
 
 };
 
