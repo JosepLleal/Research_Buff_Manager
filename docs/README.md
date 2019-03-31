@@ -18,7 +18,7 @@ With this definition we can clearly distinguish two types of status effects, the
 - **Buff:** is the status effect that affects an entity in a positive way, providing him an advantage. One of the most used buffs in video games is the health potion, which increases the current health of a character.    
 
 <p align="center">
-  <img  src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/healing.gif" width="320">
+  <img  src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/healing.gif" width="480" height="300">
 </p>
 <p align="center">
   <i>Healing in Apex Legends</i>
@@ -27,11 +27,24 @@ With this definition we can clearly distinguish two types of status effects, the
 - **Debuff:** is the status effect that affects an entity in a negative way, providing him a disadvantage. For instance, a commonly used debuff in video games is the poison, which decreases the current health  of a character. 
 
 <p align="center">
-  <img  src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/poison.gif" width="320">
+  <img  src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/poison.gif" width="480" height="300">
 </p>
 <p align="center">
   <i>Poison affecting Apex Legends players</i>
 </p>
 
 ## Types of effects
-When talking about types of effects the most commonly classification is dividing them into two main groups: buffs and debuffs, as I stated before, but indeed, we can organize them in different ways depending on how we approach them. For instance, the classification of buffs and debuffs is approached by looking **how an effect affects an entity**. The other approaches are looking the **durability of an effect** and **how an effect is applied**.
+When talking about types of effects the most commonly classification is dividing them into two main groups: buffs and debuffs, as I stated before, but indeed, we can organize them in different ways depending on how we approach them. For instance, the classification of buffs and debuffs is approached by looking **how an effect affects an entity**. The other approaches are looking the **durability of an effect** and **how an effect is applied**(referring to the mathematical method used).
+
+### Durability of an effect
+When looking at the durability of an effect we can classify them in three groups: **temporary**, **permanent** and **conditional** effects.
+
+- **Temporary effects**: 
+- **Permanent effects**:
+- **conditional effects**:
+
+### Method used
+- **By adding**:
+- **By multiplying**:
+- **By percentage**:
+
