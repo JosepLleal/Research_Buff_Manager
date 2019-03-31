@@ -19,7 +19,7 @@
 
 struct SDL_Texture;
 
-enum Attribute
+enum Attribute // All the attributes that entities have
 {
 	HEALTH,
 	STRENGTH,
@@ -27,14 +27,15 @@ enum Attribute
 	SPEED
 };
 
-enum Effects
+enum Effects  // Enum of all the current existing EFFECTS
 {
 	HEAL,
-	POISON
+	POISON,
+	WAR_CRY
 };
 
 
-enum EffectType
+enum EffectType 
 {
 	BUFF,
 	DEBUFF
@@ -62,7 +63,7 @@ struct Effect
 	EffectType		type;
 	EffectTime		duration_type;
 	EffectMethod	method;
-	Attribute		attribute_to_change;
+	Attribute		attribute_to_change; //Attribute that the effect modifies
 
 	int			bonus;
 	int			duration_value;
@@ -94,11 +95,11 @@ private:
 	void DoMath(int &att_value, float bonus, EffectMethod method, EffectType eff_type);
 	void RestartAttribute(Effect* effect, j1Player *entity);
 	void ApplyByTick(Effect* effect, j1Player *entity);
+
 	void LimitAttributes(j1Player *entity);
 
-	void LoadEffects(pugi::xml_node& data);
-
-	void SetValue(Effect &effect, std::string string);
+	void LoadEffects(pugi::xml_node& data); // Load XML values
+	void SetValue(Effect &effect, std::string string); // Used when LoadEffects() --> converts the strings from XML into the diferent enums types
 
 public:
 

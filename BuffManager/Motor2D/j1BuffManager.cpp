@@ -38,12 +38,12 @@ bool j1BuffManager::Start()
 bool j1BuffManager::Update(float dt)
 {
 	// TEMPORARY EFFECT
-	RestartAttribute(&effects[HEAL], App->player);
+	RestartAttribute(&effects[WAR_CRY], App->player);
 
 	// PER TICK
 	ApplyByTick(&effects[POISON], App->player);
 
-	// LIMIT THE ATTRIBUTES OF Entities (better optimization if this is done on the update of every entity)
+	// LIMIT THE ATTRIBUTES OF Entities  *(better optimization if this is done on the update of every entity)
 	LimitAttributes(App->player);
 	
 
@@ -86,7 +86,7 @@ void j1BuffManager::ApplyEffect(Effect* effect, j1Player *entity)
 					
 		}
 	}
-	else if (effect->duration_type == TEMPORARY) // we have to put manually every NEW EFFECT that has a TIMER (and create the timer in entity.h or in this case Player.h)
+	else if (effect->duration_type == TEMPORARY) // we have to put manually every NEW EFFECT that has a TIMER (and create the timer in entity.h or in this case in Player.h)
 	{
 		switch (effect->attribute_to_change)
 		{
@@ -103,8 +103,16 @@ void j1BuffManager::ApplyEffect(Effect* effect, j1Player *entity)
 			break;
 
 		case STRENGTH:
-			DoMath(entity->strength, effect->bonus, effect->method, effect->type);
-			
+
+			if (effect->name == effects[WAR_CRY].name)
+			{
+				if (entity->war_cry_active == false)
+				{
+					DoMath(entity->strength, effect->bonus, effect->method, effect->type);
+					entity->war_cry_active = true;
+				}
+				entity->war_cry.Start();
+			}			
 			break;
 
 		case ARMOR:
@@ -130,6 +138,7 @@ void j1BuffManager::ApplyEffect(Effect* effect, j1Player *entity)
 					entity->poison_tick_active = true;
 				}
 				entity->poison_tick.Start();
+				entity->poison_tick_iterator = 0;
 			}
 			break;
 
@@ -194,6 +203,14 @@ void j1BuffManager::RestartAttribute(Effect *effect, j1Player *entity) //Check a
 		{
 			entity->health = entity->og_health;
 			entity->heal_active = false;
+		}
+	}
+	else if (effect->name == effects[WAR_CRY].name)
+	{
+		if (entity->war_cry_active == true && entity->war_cry.ReadSec() > effect->duration_value)
+		{
+			entity->strength = entity->og_strength;
+			entity->war_cry_active = false;
 		}
 	}
 	
@@ -284,7 +301,7 @@ void j1BuffManager::LoadEffects(pugi::xml_node & data)
 	}
 }
 
-void j1BuffManager::SetValue(Effect & effect, std::string string)
+void j1BuffManager::SetValue(Effect &effect, std::string string)
 {
 	if (string == "BUFF" )
 	{

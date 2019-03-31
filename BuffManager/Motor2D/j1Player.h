@@ -23,8 +23,6 @@ public:
 	// Called before all Updates
 	bool PreUpdate();
 
-	bool UpdateTick(float dt);
-
 	// Called each loop iteration
 	bool Update(float dt);
 
@@ -48,10 +46,14 @@ public:
 	j1Timer		healing;
 	bool		heal_active = false;
 
-	//HEALING PER TICK EFFECT
+	//POISON PER TICK EFFECT
 	j1Timer		poison_tick;
 	bool		poison_tick_active = false; 
 	int			poison_tick_iterator = 0;
+
+	// WAR CRY EFFECT
+	j1Timer		war_cry;
+	bool		war_cry_active = false;
 
 };
 

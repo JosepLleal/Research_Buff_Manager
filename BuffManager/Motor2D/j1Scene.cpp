@@ -92,10 +92,13 @@ bool j1Scene::Update(float dt)
 	{
 		App->buff->ApplyEffect(&App->buff->effects[HEAL], App->player);
 	}
-
-	if (App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
+	else if (App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN)
 	{
 		App->buff->ApplyEffect(&App->buff->effects[POISON], App->player);
+	}
+	else if (App->input->GetKey(SDL_SCANCODE_3) == KEY_DOWN)
+	{
+		App->buff->ApplyEffect(&App->buff->effects[WAR_CRY], App->player);
 	}
 
 
