@@ -77,7 +77,8 @@ When looking at the durability of an effect we can classify them in four groups:
 
 ## Method used
 If we approach effects looking how these are applied mathematically to the stats of an entity, we can classify them in three types: Effect applied **by adding**, **by multiplying** and **by adding a percentage**.
-- **By adding**:
-- **By multiplying**:
-- **By adding a percentage**:
+
+- **By adding**: this type of effect adds or substracts (depending if it is a buff or a debuff) an specific amount to an attribute.  
+- **By multiplying**:this type of effect multiplies or divides (depending if it is a buff or a debuff) an specific amount to an attribute.
+- **By adding a percentage**: this type of effect adds or substracts (depending if it is a buff or a debuff) a determined percentage of the attribute to upgrade. 
 
