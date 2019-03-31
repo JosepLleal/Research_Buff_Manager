@@ -66,7 +66,7 @@ When looking at the durability of an effect we can classify them in four groups:
 - **Conditional effects**: this type of effect could be categorized as a subgroup of permanent effects as their active time is not limited by any timer. A conditional effect has a condition associated with it and while this condition is fulfilled, the buff will be active. For instance, [Garen](https://leagueoflegends.fandom.com/wiki/Garen)'s passive: Garen passively regenerates 0.2/0.8% (based on level) of his maximum health every half-second and is doubled while below 25/50% of health (based on level) of his maximum health. However, this buff is interrupted for 9/4 seconds (based on level) if he takes non-minion damage or if he is hit by an enemy ability (for this effect, the condition associated to it will be the following: *if Garen hasn't been atacked for 9 or 4 seconds (depending on level)*).
 
 <p align="center">
-  <img src="https://github.com/JosepLleal/Research_Buff_Manager/blob/master/docs/images/GarenP.gif" width="360">
+  <img src="https://github.com/JosepLleal/Research_Buff_Manager/blob/master/docs/images/GarenP.gif" >
 </p>
 <p align="center">
   <i> Garen's passive </i>
@@ -74,7 +74,8 @@ When looking at the durability of an effect we can classify them in four groups:
 
 
 ## Method used
+If we approach effects looking how these are applied mathematically to the stats of an entity, we can classify them in three types: Effect applied **by adding**, **by multiplying** and **by adding a percentage**.
 - **By adding**:
 - **By multiplying**:
-- **By percentage**:
+- **By adding a percentage**:
 
