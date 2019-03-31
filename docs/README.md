@@ -39,9 +39,10 @@ When talking about types of effects the most commonly classification is dividing
 ## Durability of an effect
 When looking at the durability of an effect we can classify them in three groups: **temporary**, **permanent** and **conditional** effects.
 
-- **Temporary effects**: 
-- **Permanent effects**:
-- **conditional effects**:
+- **Temporary effects**: as the name suggests, this type of effect only remains for a specific amount of time, this means that when the effect is finished all the upgraded attributes will be reverted to its original values. 
+- **Per tick effects**: this type of effect could be categorized as a subgroup of temporary effects since they last for a limited amount of time, however, per tick effects have a distinctive feature as the attributes are upgraded, usually, every second. In addition, the upgraded stats will not change once the effect finishes.
+- **Permanent effects**: unlike temporary effects, permanent effects will always be active as long as the entity remains alive.  
+- **Conditional effects**:
 
 ## Method used
 - **By adding**:
