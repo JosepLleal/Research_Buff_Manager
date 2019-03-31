@@ -47,7 +47,7 @@ When looking at the durability of an effect we can classify them in three groups
   <i> Janna Eye of the Storm ability </i>
 </p>
 
-- **Per tick effects**: this type of effect could be categorized as a subgroup of temporary effects since they last for a limited amount of time, however, per tick effects have a distinctive feature as the attributes are upgraded, usually, every second. In addition, the upgraded stats will not be reverted once the effect finishes. Per tick effects are mainly used for potions and poisons, for example: [health potions](https://leagueoflegends.fandom.com/wiki/Health_Potion) from [*League of Legends*](https://eune.leagueoflegends.com/en/game-info/) which regenerates 5 health every half-second for 15 seconds, restoring a total of 150 health.
+- **Per tick effects**: this type of effect could be categorized as a subgroup of temporary effects since they last for a limited amount of time, however, per tick effects have a distinctive feature as the attributes are upgraded, usually, every second. In addition, the upgraded stats will not be reverted once the effect finishes. Per tick effects are mainly used for potions and poisons, for example: [health potions](https://leagueoflegends.fandom.com/wiki/Health_Potion) from *League of Legends* which regenerates 5 health every half-second for 15 seconds, restoring a total of 150 health.
 <p align="center">
   <img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/potion.gif">
 </p>
@@ -55,7 +55,9 @@ When looking at the durability of an effect we can classify them in three groups
   <i> Health potion healing League of Legends champion</i>
 </p>
 
-- **Permanent effects**: unlike temporary effects, permanent effects will always be active as long as the entity remains alive.  
+- **Permanent effects**: unlike temporary effects, permanent effects will always be active, however, in some games this type of effect is removed when the entity dies. For instance, there are multiple champions in *League of Legends* that have a permanent buff called [*Passive*](https://leagueoflegends.fandom.com/wiki/Passive).
+
+
 - **Conditional effects**:
 
 ## Method used
