@@ -1,4 +1,4 @@
-# Buff Manager
+# Welcome!
 I am [Josep Lleal Sirvent](https://www.linkedin.com/in/josep-lleal-sirvent/), student of the
 [Bachelor’s Degree in Video Games by UPC at CITM](https://www.citm.upc.edu/ing/estudis/graus-videojocs/). 
 This content is generated for the second year’s subject Project 2, under supervision of lecturer
@@ -6,9 +6,9 @@ This content is generated for the second year’s subject Project 2, under super
 
   - Github account: [Josep Lleal](https://github.com/JosepLleal)
   
-Welcome! I understand that if you are reading this is because you are interested in this topic, one of the cores of the [MMORPGs](https://en.wikipedia.org/wiki/Massively_multiplayer_online_role-playing_game) genre. Before I start explaining how to implement a Buff Manager, it is essential to clearly understand how do Buffs work and to know all the different existing types. So, with this being said, lets start:
+I understand that if you are reading this is because you are interested in this topic, one of the cores of the [MMORPGs](https://en.wikipedia.org/wiki/Massively_multiplayer_online_role-playing_game) genre. Before I start explaining how to implement a Buff Manager, it is essential to clearly understand how do Buffs work and to know all the different existing types. So, with this being said, lets start:
   
-## What is a Buff? 
+# What is a Buff? 
 Before explaining what a Buff really is, I want to introduce the therm **status effect**:
 
 "A **status effect** is a modification to a game character’s original set of stats that usually comes into play when special powers and abilities are used. The term **status effect** can be applied both to changes that provide a character an advantage (increased attributes, defensive barriers, regeneration), and those that hinder the character (decreased attributes, incapability, degeneration)." *Wikipedia*
@@ -33,17 +33,17 @@ With this definition we can clearly distinguish two types of status effects, the
   <i>Poison affecting Apex Legends players</i>
 </p>
 
-## Types of effects
+# Types of effects
 When talking about types of effects the most commonly classification is dividing them into two main groups: buffs and debuffs, as I stated before, but indeed, we can organize them in different ways depending on how we approach them. For instance, the classification of buffs and debuffs is approached by looking **how an effect affects an entity**. The other approaches are looking the **durability of an effect** and **how an effect is applied**(referring to the mathematical method used).
 
-### Durability of an effect
+## Durability of an effect
 When looking at the durability of an effect we can classify them in three groups: **temporary**, **permanent** and **conditional** effects.
 
 - **Temporary effects**: 
 - **Permanent effects**:
 - **conditional effects**:
 
-### Method used
+## Method used
 - **By adding**:
 - **By multiplying**:
 - **By percentage**:
