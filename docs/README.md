@@ -88,4 +88,6 @@ Well, now that the topic has been properly introduced, let’s head to a very si
 ## Creation of effects
 The first step to do in order to create effects is to create an **structure** containing all the data that an effect will need: 
 
-
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/effect_structure.png">
+</p>
