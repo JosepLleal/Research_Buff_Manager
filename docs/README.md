@@ -55,7 +55,13 @@ When looking at the durability of an effect we can classify them in three groups
   <i> Health potion healing League of Legends champion</i>
 </p>
 
-- **Permanent effects**: unlike temporary effects, permanent effects will always be active, however, in some games this type of effect is removed when the entity dies. For instance, there are multiple champions in *League of Legends* that have a permanent buff called [*Passive*](https://leagueoflegends.fandom.com/wiki/Passive).
+- **Permanent effects**: unlike temporary effects, permanent effects will always be active, however, in some games this type of effect is removed when the entity dies. For instance, there are multiple champions in *League of Legends* that have a permanent buff called [*passive*](https://leagueoflegends.fandom.com/wiki/Passive).
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/nasus_passive.png" width="480">
+</p>
+<p align="center">
+  <i> <a href="https://leagueoflegends.fandom.com/wiki/Nasus">Nasus</a> passive </i>
+</p>
 
 
 - **Conditional effects**:
