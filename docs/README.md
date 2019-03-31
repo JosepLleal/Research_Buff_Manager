@@ -6,7 +6,7 @@ This content is generated for the second year’s subject Project 2, under super
 
   - Github account: [Josep Lleal](https://github.com/JosepLleal)
   
-I understand that if you are reading this is because you are interested in this topic, one of the cores of the [MMORPGs](https://en.wikipedia.org/wiki/Massively_multiplayer_online_role-playing_game) genre. Before I start explaining how to implement a Buff Manager, it is essential to clearly understand how do Buffs work and to know all the different existing types. So, with this being said, lets start:
+I understand that if you are reading this is because you are interested in this topic, one of the cores of the [MMORPGs](https://en.wikipedia.org/wiki/Massively_multiplayer_online_role-playing_game) genre. Before I start explaining how to implement a Buff Manager with C++, it is essential to clearly understand how do Buffs work and to know all the different existing types. So, with this being said, lets start:
   
 # What is a Buff? 
 Before explaining what a Buff really is, I want to introduce the therm **status effect**:
@@ -82,7 +82,10 @@ If we approach effects looking how these are applied mathematically to the stats
 - **By multiplying**:this type of effect multiplies or divides (depending if it is a buff or a debuff) an specific amount to an attribute.
 - **By adding a percentage**: this type of effect adds or substracts (depending if it is a buff or a debuff) a determined percentage of the attribute to upgrade. 
 
-# My Take
+# Buff Manager implementation
 Well, now that the topic has been properly introduced, let’s head to a very simple implementation of a **Buff manager**. Our goal is simple, create effects with XML, read and pass them into code and apply them correctly.
+
+## Creation of effects
+The first step to do in order to create effects is to create an **structure** containing all the data that an effect will need: 
 
 
