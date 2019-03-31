@@ -37,7 +37,7 @@ With this definition we can clearly distinguish two types of status effects, the
 When talking about types of effects the most commonly classification is dividing them into two main groups: buffs and debuffs, as I stated before, but indeed, we can organize them in different ways depending on how we approach them. For instance, the classification of buffs and debuffs is approached by looking **how an effect affects an entity**. The other approaches are looking the **durability of an effect** and **how an effect is applied**(referring to the mathematical method used).
 
 ## Durability of an effect
-When looking at the durability of an effect we can classify them in three groups: **temporary**, **permanent** and **conditional** effects.
+When looking at the durability of an effect we can classify them in four groups: **temporary**, **per tick**, **permanent** and **conditional** effects.
 
 - **Temporary effects**: as the name suggests, this type of effect only remains for a specific amount of time, this means that when the effect is finished all the upgraded attributes will be reverted to its original values. For instance, Janna (a champion from [*League of Legends*](https://eune.leagueoflegends.com/en/game-info/)) has an ability called *Eye of the Storm* that shields the target allied champion or herself for 5 seconds and also gaining bonus attack damage.
 <p align="center">
