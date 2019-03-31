@@ -39,7 +39,14 @@ When talking about types of effects the most commonly classification is dividing
 ## Durability of an effect
 When looking at the durability of an effect we can classify them in three groups: **temporary**, **permanent** and **conditional** effects.
 
-- **Temporary effects**: as the name suggests, this type of effect only remains for a specific amount of time, this means that when the effect is finished all the upgraded attributes will be reverted to its original values. 
+- **Temporary effects**: as the name suggests, this type of effect only remains for a specific amount of time, this means that when the effect is finished all the upgraded attributes will be reverted to its original values. For instance, Janna (a champion from [*League of Legends*](https://eune.leagueoflegends.com/en/game-info/)) has an ability called *Eye of the Storm* that shields the target allied champion or herself for 5 seconds and also gaining bonus attack damage.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/jannashield.gif">
+</p>
+<p align="center">
+  <i> Janna Eye of the Storm ability </i>
+</p>
+
 - **Per tick effects**: this type of effect could be categorized as a subgroup of temporary effects since they last for a limited amount of time, however, per tick effects have a distinctive feature as the attributes are upgraded, usually, every second. In addition, the upgraded stats will not be reverted once the effect finishes. Per tick effects are mainly used for potions and poisons, for example: [health potions](https://leagueoflegends.fandom.com/wiki/Health_Potion) from [*League of Legends*](https://eune.leagueoflegends.com/en/game-info/) which regenerates 5 health every half-second for 15 seconds, restoring a total of 150 health.
 <p align="center">
   <img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/potion.gif">
