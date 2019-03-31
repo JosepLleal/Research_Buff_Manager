@@ -71,7 +71,9 @@ When looking at the durability of an effect we can classify them in four groups:
 <p align="center">
   <i> Garen's passive </i>
 </p>
-
+<p align="center">
+  <i> Notice that in this case Garen's passive is a mixture of a per tick and conditional effect </i>
+</p>
 
 ## Method used
 If we approach effects looking how these are applied mathematically to the stats of an entity, we can classify them in three types: Effect applied **by adding**, **by multiplying** and **by adding a percentage**.
