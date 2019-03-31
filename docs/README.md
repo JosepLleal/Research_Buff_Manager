@@ -82,3 +82,7 @@ If we approach effects looking how these are applied mathematically to the stats
 - **By multiplying**:this type of effect multiplies or divides (depending if it is a buff or a debuff) an specific amount to an attribute.
 - **By adding a percentage**: this type of effect adds or substracts (depending if it is a buff or a debuff) a determined percentage of the attribute to upgrade. 
 
+# My Take
+Well, now that the topic has been properly introduced, let’s head to a very simple implementation of a **Buff manager**. Our goal is simple, create effects with XML, read and pass them into code and apply them correctly.
+
+
