@@ -101,7 +101,7 @@ struct Effect
 
 	EffectType		type;
 	EffectTime		duration_type;
-	EffectMethod	method;
+	EffectMethod		method;
 	Attribute		attribute_to_change; 
 
 	int			bonus;
