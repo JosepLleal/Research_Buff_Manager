@@ -90,7 +90,7 @@ If we approach effects looking how these are applied mathematically to the stats
 Well, now that the topic has been properly introduced, let’s head to a very simple implementation of a **Buff manager**. Our goal is simple, create effects with XML, read and pass them into code and apply them correctly.
 
 ## Creation of effects
-The first step to do in order to create effects is to create an **structure** containing all the data that an effect will need: 
+The first step to do in order to create effects is to create an **struct** containing all the data that an effect will need: 
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/effect_structure.png">
@@ -103,3 +103,17 @@ The first step to do in order to create effects is to create an **structure** co
 - **attribute_to_change**: is the **type of attribute that the effect will modify**. In my case I made an enum called *Attribute* that can be this 4 types: *HEALTH*, *STRENGTH*, *ARMOR* or *SPEED*.
 - **bonus**: an integer variable that means: in case the *method* is *ADD* it is the amount that will be added to the desired attribute, in case is *MULTIPLY* it is the amount that will be multiplied and in case is *PERCENTAGE* it is the percentage of the attribute to change.
 - **duration_value**: an integer variable that stores the **amount of time in seconds** that an effect wil last. If the *duration_type* is  *PERMANENT* this variable is useless.
+
+
+### XML file
+To create one or more effects with an XML file this structure has to be followed:
+```c++
+<?xml version="1.0" encoding="utf-8"?>
+<buff_manager>
+  
+  <effect id ="0" name="healing" type="BUFF" duration_type="PERMANENT" method="ADD" att_to_change="HEALTH" bonus="20" duration_value="0"></effect>
+
+</buff_manager>
+```
+As we can see, all the variables are the same as the ones in the effect struct... Oh wait! There is a variable called *id*, what's that?
+Ok, calm down, just for now the only thing you need to know about this variable is that whenever a new effect is created in this file, the new effect id will be *latest effect id + 1*. So for instance if we want to create a new effect, his id would be 1 (0+1).  
