@@ -137,7 +137,7 @@ In order to read the XML file I have made a function called *LoadEffect()*. This
 <details> 
   <summary>Click here to see the function (IF YOU HAVEN'T DONE THE TODO's DO NOT CLICK)</summary>
   <p> 
-		
+	<img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/LoadEffect.png">
   </p>
 </details>
 
