@@ -96,9 +96,10 @@ The first step to do in order to create effects is to create an **structure** co
   <img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/effect_structure.png">
 </p>
 
-- **name**: it is a string that will contain the nae of the effect.
+- **name**: it is a string that will contain the **name of the effect**.
 - **type**: it is an *EffectType* (enum) variable that can be a *BUFF* or a *DEBUFF*.
 - **duration_type**: it is an *EffectType* (enum) variable that can be *PERMANENT*, *TEMPORARY* or *PER_TICK*.
 - **method**: it is an *EffectMethod* (enum) variable that can be *ADD*, *MULTIPLY* or *PERCENTAGE*.
-- **attribute_to_change**: is the type of attribute that the effect will modify. In my case I made an enum called *Attribute* that can be this 4 types: *HEALTH*, *STRENGTH*, *ARMOR* or *SPEED*.
-- **bonus**: an integrer value that means: in case the **method** is *ADD* it is the amount that will be added to the desired attribute, in case is *MULTIPLY* it is the amount that will be multiplied and in case is *PERCENTAGE* it is the percentage of the attribute to change.
+- **attribute_to_change**: is the **type of attribute that the effect will modify**. In my case I made an enum called *Attribute* that can be this 4 types: *HEALTH*, *STRENGTH*, *ARMOR* or *SPEED*.
+- **bonus**: an integer variable that means: in case the *method* is *ADD* it is the amount that will be added to the desired attribute, in case is *MULTIPLY* it is the amount that will be multiplied and in case is *PERCENTAGE* it is the percentage of the attribute to change.
+- **duration_value**: an integer variable that stores the **amount of time in seconds** that an effect wil last. If the *duration_type* is  *PERMANENT* this variable is useless.
