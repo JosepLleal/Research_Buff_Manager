@@ -136,27 +136,8 @@ In order to read the XML file I have made a function called *LoadEffect()*. This
 
 <details> 
   <summary>Click here to see the function (IF YOU HAVEN'T DONE THE TODO's DO NOT CLICK)</summary>
-  	<p> 
+  <p> 
 		
-	
-	void j1BuffManager::LoadEffects(pugi::xml_node & data)
-	{
-		pugi::xml_node effect;
-		Effect iterator;
-	
-		for (effect = data.child("effect"); effect; effect = effect.next_sibling("effect"))
-		{
-			iterator.name = effect.attribute("name").as_string();
-			SetValue(iterator, effect.attribute("type").as_string());
-			SetValue(iterator, effect.attribute("duration_type").as_string());
-			SetValue(iterator, effect.attribute("method").as_string());
-			SetValue(iterator, effect.attribute("att_to_change").as_string());
-			iterator.bonus = effect.attribute("bonus").as_int();
-			iterator.duration_value = effect.attribute("duration_value").as_int();
-
-			effects[effect.attribute("id").as_int()] = iterator;
-		}
-	}
   </p>
 </details>
 
