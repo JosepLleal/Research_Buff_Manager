@@ -133,6 +133,7 @@ Ok, calm down, just for now the only thing you need to know about this variable 
 
 ## Read XML File & Store Effects
 In order to read the XML file I have made a function called *LoadEffect()*. This function basically iterates all the *< effect >* nodes and stores all his attributes in a temporary Effect created in the same function. Once all the variables of the effect are set, we store this effect in an array called *effects* (created in the *BuffManager.h*). Remember that *id* I talked about? This is the moment to use it! To store the effect in the array we will do the following: *effects*[*new_effect_id*] = *new_effect*;  
+
 ***IMPORTANT:*** with all the *enum-type* variables of the effect, in order to set properly their type I have created a function called *SetValue(&effect, string)* that basically "converts" the string passed into the corresponding *enum-type*.  
 
 <details> 
@@ -141,5 +142,13 @@ In order to read the XML file I have made a function called *LoadEffect()*. This
 	<img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/LoadEffect.png">
   </p>
 </details>
+
+## Apply Effect to an Entity
+Before I start explaining how to apply an effect, I'm going to explain **briefly** two things: **how to acces to the desired effect** (without having to remember each effect's id) and **how to "manage" effect's timers and attributes** of an **entity**.
+
+### Accest to desired Effect
+Let's say, for instance, that you have created 4 effects that are stored in the *effects* array. If you want to acces to the third created effect you would do this *effects[2]*. But what if you had 20 effects? it would be pretty tough to remember each effect position, right? Be happy, there is a simple solution! 
+
+In *BuffManager.h* I have created an enum called Effects. Each time you create a new effect from the XML, go to this enum and put the effect's name (it is essential to put all the effects in the same order as the XML). So now, to acces to the desired effect just to this: *effects[EFFECT_NAME]*.
 
 
