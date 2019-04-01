@@ -118,7 +118,7 @@ struct Effect
 - **duration_value**: an integer variable that stores the **amount of time in seconds** that an effect wil last. If the *duration_type* is  *PERMANENT* this variable is useless.
 
 
-### XML file
+### XML File
 To create one or more effects with an XML file this structure has to be followed:
 ```c++
 <?xml version="1.0" encoding="utf-8"?>
@@ -130,3 +130,33 @@ To create one or more effects with an XML file this structure has to be followed
 ```
 As we can see, all the variables are the same as the ones in the effect struct... Oh wait! There is a variable called *id*, what's that?
 Ok, calm down, just for now the only thing you need to know about this variable is that whenever a new effect is created in this file, the new effect id will be *latest effect id + 1*. So for instance if we want to create a new effect, his id would be 1 (0+1).  
+
+## Read XML File & Store Effects
+In order to read the XML file I have made a function called *LoadEffect()*. This function basically iteratesall the *< effect >* nodes and stores all his attributes in a temporary Effect created in the same function. Once all the variables of the effect are set, we store this effect in an array called *effect* (created in the *BuffManager.h*). Remember that *id* I talked about? This is the moment to use it! To store the effect in the array we will do the following: *effects*[*new_effect_id*] = *new_effect*;  
+
+<details> 
+  <summary>Click here to see the function (IF YOU HAVEN'T DONE THE TODO's DO NOT CLICK)</summary>
+  	<p> 
+		
+	
+	void j1BuffManager::LoadEffects(pugi::xml_node & data)
+	{
+		pugi::xml_node effect;
+		Effect iterator;
+	
+		for (effect = data.child("effect"); effect; effect = effect.next_sibling("effect"))
+		{
+			iterator.name = effect.attribute("name").as_string();
+			SetValue(iterator, effect.attribute("type").as_string());
+			SetValue(iterator, effect.attribute("duration_type").as_string());
+			SetValue(iterator, effect.attribute("method").as_string());
+			SetValue(iterator, effect.attribute("att_to_change").as_string());
+			iterator.bonus = effect.attribute("bonus").as_int();
+			iterator.duration_value = effect.attribute("duration_value").as_int();
+
+			effects[effect.attribute("id").as_int()] = iterator;
+		}
+	}
+  </p>
+</details>
+
