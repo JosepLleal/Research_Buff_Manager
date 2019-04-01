@@ -115,7 +115,7 @@ struct Effect
 - **method**: it is an *EffectMethod* (enum) variable that can be *ADD*, *MULTIPLY* or *PERCENTAGE*.
 - **attribute_to_change**: is the **type of attribute that the effect will modify**. In my case I made an enum called *Attribute* that can be this 4 types: *HEALTH*, *STRENGTH*, *ARMOR* or *SPEED*.
 - **bonus**: an integer variable that means: in case the *method* is *ADD* it is the amount that will be added to the desired attribute, in case is *MULTIPLY* it is the amount that will be multiplied and in case is *PERCENTAGE* it is the percentage of the attribute to change.
-- **duration_value**: an integer variable that stores the **amount of time in seconds** that an effect wil last. If the *duration_type* is  *PERMANENT* this variable is useless.
+- **duration_value**: an integer variable that stores the **amount of time in seconds** that an effect will last. If the *duration_type* is  *PERMANENT* this variable is useless.
 
 
 ### XML File
@@ -146,9 +146,15 @@ In order to read the XML file I have made a function called *LoadEffect()*. This
 ## Apply Effect to an Entity
 Before I start explaining how to apply an effect, I'm going to explain **briefly** two things: **how to acces to the desired effect** (without having to remember each effect's id) and **how to "manage" effect's timers and attributes** of an **entity**.
 
-### Accest to desired Effect
+### Acces to desired Effect
 Let's say, for instance, that you have created 4 effects that are stored in the *effects* array. If you want to acces to the third created effect you would do this *effects[2]*. But what if you had 20 effects? it would be pretty tough to remember each effect position, right? Be happy, there is a simple solution! 
 
-In *BuffManager.h* I have created an enum called Effects. Each time you create a new effect from the XML, go to this enum and put the effect's name (it is essential to put all the effects in the same order as the XML). So now, to acces to the desired effect just to this: *effects[EFFECT_NAME]*.
+In *BuffManager.h* I have created an enum called Effects. Each time you create a new effect from the XML, go to this enum and put the effect's name (it is essential to put all the effects in the same order as the XML). So now, to acces to the desired effect just do this: *effects[EFFECT_NAME]*.
+
+
+### Entity Attributes & Timers
+For the attributes there is only one thing to remark, each attribute has two integer variables: the **original value** and the **actual value**.  
+- **original value**: This variable has to only be modified when we apply a *PERMANENT* or *PER_TICK* effect. The main utility of this variable is to reset the **actual value** of an attribute to his **original value** when a *TEMPORARY* effect ends.
+- **actual value**: As the name suggests, this is the actual value of the attribute. This variable is **always modified** when we apply **any type of effect**. 
 
 
