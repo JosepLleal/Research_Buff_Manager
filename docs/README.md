@@ -162,6 +162,7 @@ For the **attributes** there is only one thing to remark, each attribute has two
 
 
 **TIMERS:**
+
 We will need to create a timer for every *TEMPORARY* and *PER_TICK* effect. In addition, we will also create a *boolean* to check if the effect is active or not. For a *PER_TICK* effect, we will create an *integer* that will be used to upgrade an attribute each tick.   
 
 *See these two effects examples to help the understanding:*
