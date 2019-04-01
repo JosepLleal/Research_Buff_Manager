@@ -132,7 +132,8 @@ As we can see, all the variables are the same as the ones in the effect struct..
 Ok, calm down, just for now the only thing you need to know about this variable is that whenever a new effect is created in this file, the new effect id will be *latest effect id + 1*. So for instance if we want to create a new effect, his id would be 1 (0+1).  
 
 ## Read XML File & Store Effects
-In order to read the XML file I have made a function called *LoadEffect()*. This function basically iteratesall the *< effect >* nodes and stores all his attributes in a temporary Effect created in the same function. Once all the variables of the effect are set, we store this effect in an array called *effect* (created in the *BuffManager.h*). Remember that *id* I talked about? This is the moment to use it! To store the effect in the array we will do the following: *effects*[*new_effect_id*] = *new_effect*;  
+In order to read the XML file I have made a function called *LoadEffect()*. This function basically iterates all the *< effect >* nodes and stores all his attributes in a temporary Effect created in the same function. Once all the variables of the effect are set, we store this effect in an array called *effects* (created in the *BuffManager.h*). Remember that *id* I talked about? This is the moment to use it! To store the effect in the array we will do the following: *effects*[*new_effect_id*] = *new_effect*;  
+***IMPORTANT:*** with all the *enum-type* variables of the effect, in order to set properly their type I have created a function called *SetValue(&effect, string)* that basically "converts" the string passed into the corresponding *enum-type*.  
 
 <details> 
   <summary>Click here to see the function (IF YOU HAVEN'T DONE THE TODO's DO NOT CLICK)</summary>
@@ -140,4 +141,5 @@ In order to read the XML file I have made a function called *LoadEffect()*. This
 	<img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/LoadEffect.png">
   </p>
 </details>
+
 
