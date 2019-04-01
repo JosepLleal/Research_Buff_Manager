@@ -152,9 +152,28 @@ Let's say, for instance, that you have created 4 effects that are stored in the 
 In *BuffManager.h* I have created an enum called Effects. Each time you create a new effect from the XML, go to this enum and put the effect's name (it is essential to put all the effects in the same order as the XML). So now, to acces to the desired effect just do this: *effects[EFFECT_NAME]*.
 
 
-### Entity Attributes & Timers
-For the attributes there is only one thing to remark, each attribute has two integer variables: the **original value** and the **actual value**.  
+### Entity's Attributes & Timers
+
+**ATTRIBUTES:**
+
+For the **attributes** there is only one thing to remark, each attribute has two integer variables: the **original value** and the **actual value**.  
 - **original value**: This variable has to only be modified when we apply a *PERMANENT* or *PER_TICK* effect. The main utility of this variable is to reset the **actual value** of an attribute to his **original value** when a *TEMPORARY* effect ends.
 - **actual value**: As the name suggests, this is the actual value of the attribute. This variable is **always modified** when we apply **any type of effect**. 
 
+
+**TIMERS:**
+We will need to create a timer for every *TEMPORARY* and *PER_TICK* effect. In addition, we will also create a *boolean* to check if the effect is active or not. For a *PER_TICK* effect, we will create an *integer* that will be used to upgrade an attribute each tick.   
+
+*See these two effects examples to help the understanding:*
+
+```c++
+//POISON --- PER TICK EFFECT --- reduces live each tick
+j1Timer		poison_tick;
+bool		poison_tick_active = false; 
+int		poison_tick_iterator = 0;
+
+// WAR CRY --- TEMPORARY --- gain extra strength for a limited time
+j1Timer		war_cry;
+bool		war_cry_active = false;
+```
 
