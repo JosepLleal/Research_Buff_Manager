@@ -54,6 +54,8 @@ bool j1Scene::Start()
 	Armor = App->gui->Create_Label(Element_type::LABEL, { 425, 710 }, true, false, "0%%", { 200,0, 0,0 }, App->font->smaller);
 	Speed = App->gui->Create_Label(Element_type::LABEL, { 565, 710 }, true, false, "0%%", { 200,0, 0,0 }, App->font->smaller);
 
+	NumberEffects = App->gui->Create_Label(Element_type::LABEL, { 230, 5 }, true, false, "0%%", { 0,255, 0,0 }, App->font->smaller);
+	EffectsLoaded = App->gui->Create_Label(Element_type::LABEL, { 20, 10 }, true, false, "Loaded effects:", { 255,255, 255,0 }, App->font->Credits);
 
 	return true;
 }
@@ -71,7 +73,16 @@ bool j1Scene::Update(float dt)
 	Strength->ValuetoString(App->player->strength, Strength->text);
 	Armor->ValuetoString(App->player->armor, Armor->text);
 	Speed->ValuetoString(App->player->speed, Speed->text);
+	NumberEffects->ValuetoString(App->buff->CreatedEffects, NumberEffects->text);
 
+	if (App->buff->CreatedEffects > 0)
+	{
+		NumberEffects->color = { 0,255, 0,0 };
+	}
+	else
+	{
+		NumberEffects->color = { 255,0, 0,0 };
+	}
 
 	
 	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)

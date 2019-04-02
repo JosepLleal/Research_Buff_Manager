@@ -69,6 +69,7 @@ struct Effect
 	int			duration_value;
 };
 
+
 class j1BuffManager :public j1Module 
 {
 public:
@@ -94,7 +95,7 @@ private:
 
 	void DoMath(int &att_value, float bonus, EffectMethod method, EffectType eff_type);
 	void RestartAttribute(Effect* effect, j1Player *entity);
-	void ApplyByTick(Effect* effect, j1Player *entity);
+	void ApplyEachTick(Effect* effect, j1Player *entity);
 
 	void LimitAttributes(j1Player *entity);
 
@@ -103,7 +104,8 @@ private:
 
 public:
 
-	Effect			effects[MAX_EFFECTS];
+	Effect			effects[MAX_EFFECTS]; 
+	int				CreatedEffects = 0;
 
 private:
 

@@ -41,7 +41,7 @@ bool j1BuffManager::Update(float dt)
 	RestartAttribute(&effects[WAR_CRY], App->player);
 
 	// PER TICK
-	ApplyByTick(&effects[POISON], App->player);
+	ApplyEachTick(&effects[POISON], App->player);
 
 	// LIMIT THE ATTRIBUTES OF Entities  *(better optimization if this is done on the update of every entity)
 	LimitAttributes(App->player);
@@ -137,8 +137,8 @@ void j1BuffManager::ApplyEffect(Effect* effect, j1Player *entity)
 				{
 					entity->poison_tick_active = true;
 				}
-				entity->poison_tick.Start();
-				entity->poison_tick_iterator = 0;
+				entity->poison_tick.Start(); // start or restart timer
+				entity->poison_tick_iterator = 0; //restart iterator
 			}
 			break;
 
@@ -216,7 +216,7 @@ void j1BuffManager::RestartAttribute(Effect *effect, j1Player *entity) //Check a
 	
 }
 
-void j1BuffManager::ApplyByTick(Effect * effect, j1Player * entity) //Check all the PER_TICK effects of an entity
+void j1BuffManager::ApplyEachTick(Effect * effect, j1Player * entity) //Check all the PER_TICK effects of an entity
 {
 	if (entity->poison_tick_active == true)
 	{
@@ -284,21 +284,23 @@ void j1BuffManager::LimitAttributes(j1Player * entity)
 
 void j1BuffManager::LoadEffects(pugi::xml_node & data)
 {
-	pugi::xml_node effect;
-	Effect iterator;
+	pugi::xml_node iterator;
+	Effect effect;
 	
-	for (effect = data.child("effect"); effect; effect = effect.next_sibling("effect"))
+	for (iterator = data.child("effect"); iterator; iterator = iterator.next_sibling("effect"))
 	{
-		iterator.name = effect.attribute("name").as_string();
-		SetValue(iterator, effect.attribute("type").as_string());
-		SetValue(iterator, effect.attribute("duration_type").as_string());
-		SetValue(iterator, effect.attribute("method").as_string());
-		SetValue(iterator, effect.attribute("att_to_change").as_string());
-		iterator.bonus = effect.attribute("bonus").as_int();
-		iterator.duration_value = effect.attribute("duration_value").as_int();
+		effect.name = iterator.attribute("name").as_string();
+		SetValue(effect, iterator.attribute("type").as_string());
+		SetValue(effect, iterator.attribute("duration_type").as_string());
+		SetValue(effect, iterator.attribute("method").as_string());
+		SetValue(effect, iterator.attribute("att_to_change").as_string());
+		effect.bonus = iterator.attribute("bonus").as_int();
+		effect.duration_value = iterator.attribute("duration_value").as_int();
 
-		effects[effect.attribute("id").as_int()] = iterator;
+		effects[iterator.attribute("id").as_int()] = effect;
+		CreatedEffects++;
 	}
+	
 }
 
 void j1BuffManager::SetValue(Effect &effect, std::string string)

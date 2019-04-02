@@ -34,13 +34,7 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
-public:
 
-	// Set new Walkability map
-	bool SetWalkabilityMap();
-
-	// Change current map
-	bool ChangeMap(int destination_map_id);
 
 private:
 	SDL_Texture* debug_tex;
@@ -53,6 +47,9 @@ private:
 	Gui_Elements* Armor = nullptr;
 
 	Gui_Elements* HUD = nullptr;
+
+	Gui_Elements* NumberEffects = nullptr;
+	Gui_Elements* EffectsLoaded = nullptr;
 
 };
 
