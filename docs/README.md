@@ -252,6 +252,7 @@ Create the effect with all his correct properties.
 </details>
 
 
+
 **TODO 1:**
 
 <details> 
@@ -260,6 +261,8 @@ Create the effect with all his correct properties.
 	<img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/TODO1.png" />
   </p>
 </details>
+
+
 
 **TODO 2:**
 
@@ -270,6 +273,8 @@ Create the effect with all his correct properties.
   </p>
 </details>
 
+
+
 **TODO 3:**
 
 <details> 
@@ -278,6 +283,8 @@ Create the effect with all his correct properties.
 	<img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/TODO3.png" />
   </p>
 </details>
+
+
 
 **TODO 4:**
 
@@ -288,6 +295,8 @@ Create the effect with all his correct properties.
   </p>
 </details>
 
+
+
 **TODO 5:**
 
 <details> 
@@ -297,6 +306,8 @@ Create the effect with all his correct properties.
   </p>
 </details>
 
+
+
 **TODO 6:**
 
 <details> 
@@ -305,6 +316,8 @@ Create the effect with all his correct properties.
 	<img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/TODO6.png" />
   </p>
 </details>
+
+
 
 **TODO 7:**
 
