@@ -362,10 +362,10 @@ If you have done all TODOs correctly, your final result when clicking button 1 s
 - Make a possibility to modify more than one attribute using only one effect.
 
 # Webgraphy
-- Wikipedia - Status effect: https://en.wikipedia.org/wiki/Status_effect
-- LoL Wiki - Buff: https://leagueoflegends.fandom.com/wiki/Buff
-- TvTropes - RPG spells: https://tvtropes.org/pmwiki/pmwiki.php/Main/StockRPGSpells
-- Giant Bomb - Status effect Concept: https://www.giantbomb.com/status-effects/3015-671/
-- Minecraft WIki - Video of status effects: https://www.youtube.com/watch?v=-3mxKa55lIw
+- Wikipedia - Status effect: [https://en.wikipedia.org/wiki/Status_effect](https://en.wikipedia.org/wiki/Status_effect)
+- LoL Wiki - Buff: [https://leagueoflegends.fandom.com/wiki/Buff](https://leagueoflegends.fandom.com/wiki/Buff)
+- TvTropes - RPG spells: [https://tvtropes.org/pmwiki/pmwiki.php/Main/StockRPGSpells](https://tvtropes.org/pmwiki/pmwiki.php/Main/StockRPGSpells)
+- Giant Bomb - Status effect Concept: [https://www.giantbomb.com/status-effects/3015-671/](https://www.giantbomb.com/status-effects/3015-671/)
+- Minecraft WIki - Video of status effects: [https://www.youtube.com/watch?v=-3mxKa55lIw](https://www.youtube.com/watch?v=-3mxKa55lIw)
 
 
