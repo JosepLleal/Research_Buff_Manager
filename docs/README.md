@@ -247,7 +247,7 @@ Create the effect with all his correct properties.
 <details> 
   <summary>Click to see TODO 0 solution </summary>
   <p> 
-
+	<img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/TODO0.png" />
   </p>
 </details>
 
@@ -257,7 +257,7 @@ Create the effect with all his correct properties.
 <details> 
   <summary>Click to see TODO 1 solution </summary>
   <p> 
-
+	<img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/TODO1.png" />
   </p>
 </details>
 
@@ -266,7 +266,7 @@ Create the effect with all his correct properties.
 <details> 
   <summary>Click to see TODO 2 solution </summary>
   <p> 
-
+	<img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/TODO2.png" />
   </p>
 </details>
 
@@ -275,7 +275,7 @@ Create the effect with all his correct properties.
 <details> 
   <summary>Click to see TODO 3 solution </summary>
   <p> 
-
+	<img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/TODO3.png" />
   </p>
 </details>
 
@@ -284,7 +284,7 @@ Create the effect with all his correct properties.
 <details> 
   <summary>Click to see TODO 4 solution </summary>
   <p> 
-
+	<img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/TODO4.png" />
   </p>
 </details>
 
@@ -293,7 +293,7 @@ Create the effect with all his correct properties.
 <details> 
   <summary>Click to see TODO 5 solution </summary>
   <p> 
-
+	<img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/TODO5.png" />
   </p>
 </details>
 
@@ -302,7 +302,7 @@ Create the effect with all his correct properties.
 <details> 
   <summary>Click to see TODO 6 solution </summary>
   <p> 
-
+	<img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/TODO6.png" />
   </p>
 </details>
 
@@ -311,7 +311,7 @@ Create the effect with all his correct properties.
 <details> 
   <summary>Click to see TODO 7 solution </summary>
   <p> 
-
+	<img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/TODO7.png" />
   </p>
 </details>
 
