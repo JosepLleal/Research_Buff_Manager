@@ -226,8 +226,8 @@ else if (effect->duration_type == PER_TICK)// we have to put manually every NEW 
 
 To finish with this section, I'm going to introduce two more functions that are used in *Update*, these are ***RestartAttribute()*** and ***ApplyEachTick()***. The first is only used for *TEMPORARY* effects while the second is only used for *PER_TICK* effects.
 
-*RestartAttribute(*effect, *entity)* compares the timer with the *duration_value* of the effect, and when the timer is bigger, the attribute value of the entity is restarted using the *og_attribute* value. ***This function also has to be updated whenever a new PERMANENT effect is added***.
+*RestartAttribute(effect, entity)* compares the timer with the *duration_value* of the effect, and when the timer is bigger, the attribute value of the entity is restarted using the *og_attribute* value. ***This function also has to be updated whenever a new PERMANENT effect is added***.
 
-*ApplyEachTick(*effect, *entity)* is in charge of calling the *DoMath()* function every tick (notice on the code above that when we apply a *PER_TICK* effect the *DoMath()* function is not called). ***This function also has to be updated whenever a new PER_TICK effect is added***.
+*ApplyEachTick(effect, entity)* is in charge of calling the *DoMath()* function every tick (notice on the code above that when we apply a *PER_TICK* effect the *DoMath()* function is not called). ***This function also has to be updated whenever a new PER_TICK effect is added***.
 
 
