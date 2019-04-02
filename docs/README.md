@@ -242,7 +242,7 @@ Download the release to see the final result [HERE](https://github.com/JosepLlea
 
 **TODO 0:**
 
-Create the effect with all his correct properties.
+Create the effect in the XML file with all his correct properties.
 
 <details> 
   <summary>Click to see TODO 0 solution </summary>
@@ -255,6 +255,8 @@ Create the effect with all his correct properties.
 
 **TODO 1:**
 
+Add the loaded effect to the *effects[]* array located in *BuffManager*.
+
 <details> 
   <summary>Click to see TODO 1 solution </summary>
   <p> 
@@ -265,6 +267,8 @@ Create the effect with all his correct properties.
 
 
 **TODO 2:**
+
+ Insert the new effect into the *enum* of all the current existing effects.
 
 <details> 
   <summary>Click to see TODO 2 solution </summary>
@@ -277,6 +281,8 @@ Create the effect with all his correct properties.
 
 **TODO 3:**
 
+You have to create tqo variables: ghost's *j1Timer* and a *bool ghost_active* initialized as false.
+
 <details> 
   <summary>Click to see TODO 3 solution </summary>
   <p> 
@@ -287,6 +293,9 @@ Create the effect with all his correct properties.
 
 
 **TODO 4:**
+
+Inside the function *ApplyEffect()*, you need to check if the effect's name that is passed is equal to the GHOST effect's name (REMEMBER: to acces to your created effects use the array *effects[EFFECT_ENUM]*. Then, if the effect is not active make it active and apply the function *DoMath()* correctly. To finish start the timer.
+				
 
 <details> 
   <summary>Click to see TODO 4 solution </summary>
@@ -299,6 +308,8 @@ Create the effect with all his correct properties.
 
 **TODO 5:**
 
+Once again, inside the function *RestartAttribute()*, you need to check if the effect's name that is passed is equal to the GHOST effect's name. Now, if the entity has the effect active && the effect has ended: reset the speed value (use the og attributes ;D) and put the effect as non-active.
+
 <details> 
   <summary>Click to see TODO 5 solution </summary>
   <p> 
@@ -310,6 +321,8 @@ Create the effect with all his correct properties.
 
 **TODO 6:**
 
+In the *Update* of the entity call the necessary function to, when the effect finishes, restart the upgraded attribute. 
+
 <details> 
   <summary>Click to see TODO 6 solution </summary>
   <p> 
@@ -320,6 +333,8 @@ Create the effect with all his correct properties.
 
 
 **TODO 7:**
+
+To finish, apply the GHOST effect to the player when pressing button 1.
 
 <details> 
   <summary>Click to see TODO 7 solution </summary>
