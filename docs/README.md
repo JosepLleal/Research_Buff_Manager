@@ -231,3 +231,29 @@ To finish with this section, I'm going to introduce two more functions that are 
 *ApplyEachTick(effect, entity)* is in charge of calling the *DoMath()* function every tick (notice on the code above that when we apply a *PER_TICK* effect the *DoMath()* function is not called). ***This function also has to be updated whenever a new PER_TICK effect is added***.
 
 
+# TODOs
+
+**OBJECTIVE:**
+You have to create a new effect called ***Ghost*** which has to be a *TEMPORARY BUFF*. When ***Ghost*** is applied (clicking button 1) the player' *SPEED* should increase +10 lasting 3 seconds. Good luck!
+
+Download the release to see the final result [HERE](https://github.com/JosepLleal/Research_Buff_Manager/releases/download/1.0/BuffManager_Solution.zip).
+
+[CLICK HERE](https://github.com/JosepLleal/Research_Buff_Manager/archive/master.zip) to download my repository, inside the folder *Exercise* open the *Handout* to start the doing TODOs.
+
+**TODO 1:**
+
+**TODO 2:**
+
+**TODO 3:**
+
+**TODO 4:**
+
+**TODO 5:**
+
+**TODO 6:**
+
+**TODO 7:**
+
+
+
+
