@@ -1,0 +1,9 @@
+<buff_manager>
+  <!-- TODO 0: 
+  Create a new effect called Ghost which has to be a TEMPORARY BUFF. 
+  When Ghost is applied  the player' SPEED will be increased +10 lasting 3 seconds.
+  THESE ARE ALL THE NODE ATTRIBUTES THAT EVERY EFFECT HAS, :D : 
+  id ="" name="" type="" duration_type="" method="" att_to_change="" bonus="" duration_value=""-->
+  
+  
+</buff_manager>

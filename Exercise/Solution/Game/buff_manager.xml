@@ -1,0 +1,5 @@
+<buff_manager>
+
+  <effect id ="0" name="Ghost" type="BUFF" duration_type="TEMPORARY" method="ADD" att_to_change="SPEED" bonus="10" duration_value="3"></effect>
+  
+</buff_manager>
