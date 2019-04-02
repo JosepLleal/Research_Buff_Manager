@@ -37,13 +37,15 @@ bool j1BuffManager::Start()
 
 bool j1BuffManager::Update(float dt)
 {
+	// better optimization if this is done on the update of every entity --> (&effect, this)
+
 	// TEMPORARY EFFECT
 	RestartAttribute(&effects[WAR_CRY], App->player);
 
 	// PER TICK
 	ApplyEachTick(&effects[POISON], App->player);
 
-	// LIMIT THE ATTRIBUTES OF Entities  *(better optimization if this is done on the update of every entity)
+	// LIMIT THE ATTRIBUTES OF Entities  
 	LimitAttributes(App->player);
 	
 
@@ -53,6 +55,7 @@ bool j1BuffManager::Update(float dt)
 bool j1BuffManager::CleanUp()
 {
 
+	delete effects;
 
 	return true;
 }
@@ -98,7 +101,7 @@ void j1BuffManager::ApplyEffect(Effect* effect, j1Player *entity)
 					DoMath(entity->health, effect->bonus, effect->method, effect->type);
 					entity->heal_active = true;
 				}
-				entity->healing.Start();
+				entity->healing.Start(); // timer starts
 			}
 			break;
 
@@ -218,21 +221,25 @@ void j1BuffManager::RestartAttribute(Effect *effect, j1Player *entity) //Check a
 
 void j1BuffManager::ApplyEachTick(Effect * effect, j1Player * entity) //Check all the PER_TICK effects of an entity
 {
-	if (entity->poison_tick_active == true)
+	if (effect->name == effects[POISON].name)
 	{
-		if (entity->poison_tick.ReadSec() > effect->duration_value)
+		if (entity->poison_tick_active == true)
 		{
-			entity->poison_tick_active = false;
-			entity->poison_tick_iterator = 0;
+			if (entity->poison_tick.ReadSec() > effect->duration_value)
+			{
+				entity->poison_tick_active = false;
+				entity->poison_tick_iterator = 0;
 
-		}
-		if (entity->poison_tick.ReadSec() > entity->poison_tick_iterator)
-		{
-			DoMath(entity->health, effect->bonus, effect->method, effect->type);
-			DoMath(entity->og_health, effect->bonus, effect->method, effect->type);
-			entity->poison_tick_iterator++;
+			}
+			if (entity->poison_tick.ReadSec() > entity->poison_tick_iterator)
+			{
+				DoMath(entity->health, effect->bonus, effect->method, effect->type);
+				DoMath(entity->og_health, effect->bonus, effect->method, effect->type);
+				entity->poison_tick_iterator++;
+			}
 		}
 	}
+	
 }
 
 void j1BuffManager::LimitAttributes(j1Player * entity)
