@@ -177,4 +177,49 @@ int		poison_tick_iterator = 0;
 j1Timer		war_cry;
 bool		war_cry_active = false;
 ```
+### How to Apply our effects?
 
+To apply effects I have created two main functions: ***ApplyEffect()*** and ***DoMath()***. *ApplyEffect()* is the function that you will call when applying an effect and *DoMath()* is the responsible, as his name says, to do all the operations. This second function is called inside *ApplyEffects()*.
+
+When calling the function ***ApplyEffects()*** you will need to pass two parameters: the **effect** you want to apply and to which **entity**, so for instance, it would look something like this: *ApplyEffects(&effects[EFFECT_NAME], Entity);*
+
+I'm not going to explain entirely how *ApplyEfefcts()* works but I do have to **remark a few things**:
+
+*ApplyEffect()* firstly checks the *duration_type [PERMANENT, TEMPORARY or PER_TICK]* of the effect and depending on the type it does different things. For *PERMANENT* effects is 100% automatic, however for the other **two types that require a timer** the function has to be updated.
+
+See this 2 pieces of code inside *ApplyEffect()* to understand it clearly:
+
+```c++
+else if (effect->duration_type == TEMPORARY) // we have to put manually every NEW EFFECT that has a TIMER (and create the timer in entity.h or in this case in Player.h)
+	{
+		switch (effect->attribute_to_change) // check what attribute modifies
+		{
+		case HEALTH:
+			if (effect->name == effects[HEAL].name)
+			{
+				if (entity->heal_active == false)
+				{
+					DoMath(entity->health, effect->bonus, effect->method, effect->type);
+					entity->heal_active = true;
+				}
+				entity->healing.Start(); // timer starts
+			}
+			break;
+		}
+	}
+else if (effect->duration_type == PER_TICK)// we have to put manually every NEW EFFECT that has a TIMER (and create the timer in entity.h or in this case Player.h)
+	{
+		switch (effect->attribute_to_change)
+		{
+		case HEALTH:
+			if (effect->name == effects[POISON].name)
+			{
+				if (entity->poison_tick_active == false)
+				{
+					entity->poison_tick_active = true;
+				}
+				entity->poison_tick.Start(); // start or restart timer
+				entity->poison_tick_iterator = 0; //restart iterator
+			}
+			break;
+```
