@@ -240,19 +240,80 @@ Download the release to see the final result [HERE](https://github.com/JosepLlea
 
 [CLICK HERE](https://github.com/JosepLleal/Research_Buff_Manager/archive/master.zip) to download my repository, inside the folder *Exercise* open the *Handout* to start the doing TODOs.
 
+**TODO 0:**
+
+Create the effect with all his correct properties.
+
+<details> 
+  <summary>Click to see TODO 0 solution </summary>
+  <p> 
+
+  </p>
+</details>
+
+
 **TODO 1:**
+
+<details> 
+  <summary>Click to see TODO 1 solution </summary>
+  <p> 
+
+  </p>
+</details>
 
 **TODO 2:**
 
+<details> 
+  <summary>Click to see TODO 2 solution </summary>
+  <p> 
+
+  </p>
+</details>
+
 **TODO 3:**
+
+<details> 
+  <summary>Click to see TODO 3 solution </summary>
+  <p> 
+
+  </p>
+</details>
 
 **TODO 4:**
 
+<details> 
+  <summary>Click to see TODO 4 solution </summary>
+  <p> 
+
+  </p>
+</details>
+
 **TODO 5:**
+
+<details> 
+  <summary>Click to see TODO 5 solution </summary>
+  <p> 
+
+  </p>
+</details>
 
 **TODO 6:**
 
+<details> 
+  <summary>Click to see TODO 6 solution </summary>
+  <p> 
+
+  </p>
+</details>
+
 **TODO 7:**
+
+<details> 
+  <summary>Click to see TODO 7 solution </summary>
+  <p> 
+
+  </p>
+</details>
 
 
 
