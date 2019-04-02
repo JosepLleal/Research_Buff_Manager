@@ -230,6 +230,7 @@ To finish with this section, I'm going to introduce two more functions that are 
 
 *ApplyEachTick(effect, entity)* is in charge of calling the *DoMath()* function every tick (notice on the code above that when we apply a *PER_TICK* effect the *DoMath()* function is not called). ***This function also has to be updated whenever a new PER_TICK effect is added***.
 
+***
 
 # TODOs
 
@@ -343,6 +344,12 @@ To finish, apply the GHOST effect to the player when pressing button 1.
   </p>
 </details>
 
+If you have done all TODOs correctly, your final result when clicking button 1 should be this: 
 
-
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/solution.gif" width="480">
+</p>
+<p align="center">
+  <i> Applying Ghost effect </i>
+</p>
 
