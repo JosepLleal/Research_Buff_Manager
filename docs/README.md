@@ -230,6 +230,7 @@ To finish with this section, I'm going to introduce two more functions that are 
 
 *ApplyEachTick(effect, entity)* is in charge of calling the *DoMath()* function every tick (notice on the code above that when we apply a *PER_TICK* effect the *DoMath()* function is not called). ***This function also has to be updated whenever a new PER_TICK effect is added***.
 
+***
 
 # TODOs
 
@@ -343,6 +344,28 @@ To finish, apply the GHOST effect to the player when pressing button 1.
   </p>
 </details>
 
+If you have done all TODOs correctly, your final result when clicking button 1 should be this: 
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JosepLleal/Research_Buff_Manager/master/docs/images/solution.gif" width="480">
+</p>
+<p align="center">
+  <i> Applying Ghost effect </i>
+</p>
+
+
+***
+
+#  Improvements on the system
+- Make all the timed effects work using only one timer.
+- Make a function to apply an effect to a group of entities.
+- Make a possibility to modify more than one attribute using only one effect.
+
+# Webgraphy
+- Wikipedia | Status effect: https://en.wikipedia.org/wiki/Status_effect
+- LoL Wiki | Buff: https://leagueoflegends.fandom.com/wiki/Buff
+- TvTropes | RPG spells: https://tvtropes.org/pmwiki/pmwiki.php/Main/StockRPGSpells
+- Giant Bomb | Status effect Concept: https://www.giantbomb.com/status-effects/3015-671/
+- Minecraft WIki | Video of status effects: https://www.youtube.com/watch?v=-3mxKa55lIw
 
 
