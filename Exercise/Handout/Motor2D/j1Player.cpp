@@ -70,7 +70,7 @@ bool j1Player::Update(float dt)
 
 	
 	// TODO 6:
-	// Call the restart attribute function
+	// Call the necessary function to, when the effect finishes, restart the upgraded attribute. 
 	
 
 	

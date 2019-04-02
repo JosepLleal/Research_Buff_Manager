@@ -100,10 +100,9 @@ void j1BuffManager::ApplyEffect(Effect* effect, j1Player *entity)
 
 		case SPEED:
 			// TODO 4: 
-			// check if the effect's name that is passed is equal to the GHOST effect's name (REMEMBER: to acces to your created effects use the array effects[EFFECT_ENUM] )
-				// Now check if the entity has the boolean active to FALSE
-					// call function DoMath() and set the boolean to TRUE (when calling DoMath REMEMBER that you need to modify only the attribute, NOT the og_attribute [however, for a PERMANENT and PER_TICK you should do it])
-				// Start the entity timer
+			//check if the effect's name that is passed is equal to the GHOST effect's name(REMEMBER : to acces to your created effects use the array effects[EFFECT_ENUM].
+			//Then, if the effect is not active make it active and apply the function DoMath() correctly.
+			//To finish start the timer.
 
 			break;
 		}
@@ -168,8 +167,9 @@ void j1BuffManager::DoMath(int &att_value, float bonus, EffectMethod method, Eff
 void j1BuffManager::RestartAttribute(Effect *effect, j1Player *entity) //Check all the TEMPORAY effects of an entity and reset the value when the timer is bigger than the effect's duration_value
 {
 	// TODO 5:
-	//Once again, check if the effect's name that is passed is equal to the GHOST effect's name (REMEMBER: to acces to your created effects use the array effects[EFFECT_ENUM] )
-		// Now, If the entity has the effect active && the timer is bigger that the effect duration: reset the speed value (use the og attributes ;D) and put the effect as non-active. 
+	//check if the effect's name that is passed is equal to the GHOST effect's name.
+	//Now, if the entity has the effect active && the effect has ended : 
+	//reset the speed value(use the og attributes; D) and put the effect as non-active.
 
 
 	
